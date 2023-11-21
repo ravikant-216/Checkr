@@ -2,7 +2,7 @@ import { CssBaseline, ThemeProvider } from '@mui/material'
 import type { Preview } from '@storybook/react'
 import React from 'react'
 import { MemoryRouter } from 'react-router-dom'
-import theme from '../src/theme/index'
+import theme from '../src/themes/index'
 import '../src/index.css'
 
 const withThemeProvider = (Story, context) => {
