@@ -4,7 +4,6 @@ import user from '../../../../public/assests/icons/user.svg'
 import calendar from '../../../../public/assests/icons/Calendar.svg'
 export default {
   component: Icon,
-  title: 'Atoms/Icon',
   argTypes: {
     height: { control: 'text' },
     width: { control: 'text' },
