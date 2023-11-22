@@ -5,7 +5,14 @@ const CheckBox = ({ ...props }: CheckboxProps) => {
   return (
     <Checkbox
       checked={props.checked}
-      style={{ color: theme.palette.primary[500] }}
+      sx={{
+        color: props.checked
+          ? theme.palette.primary[500]
+          : theme.palette.structural.STRUCTURAL_STROKE,
+        '&.Mui-checked': {
+          color: theme.palette.primary[500],
+        },
+      }}
       {...props}
     />
   )
