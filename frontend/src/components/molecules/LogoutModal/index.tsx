@@ -3,7 +3,7 @@ import { ButtonComponent } from '@/components/atoms/Button'
 import Typography from '@/components/atoms/Typography'
 import theme from '@/themes'
 import { Box, Modal, styled } from '@mui/material'
-import { LogoutModalDetails } from '@/strings/constants'
+import { LogoutModalDetails } from '@/strings/constant'
 
 const ModalBox = styled(Box)({
   position: 'absolute',
