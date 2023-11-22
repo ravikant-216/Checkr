@@ -103,6 +103,13 @@ const theme = createTheme({
         },
       },
     },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: '4px',
+        },
+      },
+    },
   },
   palette: {
     primary: {
