@@ -1,5 +1,6 @@
 import { SxProps, createTheme } from '@mui/material/styles'
 import { PALETTE } from './themeConstant'
+import { inputLabelClasses, outlinedInputClasses } from '@mui/material'
 declare module '@mui/material/styles' {
   interface TypeText {
     white: string
@@ -76,6 +77,33 @@ declare module '@mui/material/Typography' {
 }
 
 const theme = createTheme({
+  components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          [`& .${outlinedInputClasses.input}`]: {
+            padding: '8px 12px',
+          },
+          [`.${inputLabelClasses.root}`]: {
+            fontWeight: '400',
+          },
+          borderRadius: '8px',
+          '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+              borderColor: PALETTE.STRUCTURAL_STROKE,
+            },
+            '&:hover fieldset': {
+              borderColor: PALETTE.STRUCTURAL_STROKE,
+            },
+            '&.Mui-focused fieldset': {
+              borderColor: PALETTE.STRUCTURAL_STROKE,
+            },
+            borderRadius: '8px',
+          },
+        },
+      },
+    },
+  },
   palette: {
     primary: {
       main: PALETTE.PRIMARY_500,
