@@ -4,7 +4,6 @@ import HumanImage from '../../../../public/assests/Images/humanImage.svg'
 import { Image, ImgProps } from '.'
 
 export default {
-  title: 'Atoms/Image',
   component: Image,
   argTypes: {
     src: { control: 'text' },
