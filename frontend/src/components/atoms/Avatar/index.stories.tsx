@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import Avatar from '.'
-import avatar from '@Assets/icons/avatar.svg'
+import avatar from '@Assets/icons/Avatar.svg'
 
 const meta: Meta<typeof Avatar> = {
   component: Avatar,
