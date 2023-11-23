@@ -4,7 +4,7 @@ import theme from '@/themes'
 import { InputAdornment, TextField as MuiTextField } from '@mui/material'
 import React, { ComponentProps } from 'react'
 
-interface TextFieldPropType extends ComponentProps<typeof MuiTextField> {
+export interface TextFieldPropType extends ComponentProps<typeof MuiTextField> {
   startIcon?: React.JSX.Element
   endIcon?: React.JSX.Element
   placeholder?: string
