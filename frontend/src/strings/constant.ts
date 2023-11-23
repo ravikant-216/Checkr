@@ -62,3 +62,4 @@ export const CANDIDATE_DATA: CardProps[] = [
     subheading: 'Nov 29,2016 11:05:57 AM',
   },
 ]
+export const FILTER = 'Filter'
