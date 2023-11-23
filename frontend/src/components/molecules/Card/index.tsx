@@ -2,7 +2,7 @@ import { Icon } from '@/components/atoms/Icon'
 import Typography from '@/components/atoms/Typography'
 import theme from '@/themes'
 import { Stack, Box } from '@mui/material'
-interface CardProps {
+export interface CardProps {
   src?: string
   alt?: string
   heading: string
