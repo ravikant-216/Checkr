@@ -45,6 +45,7 @@ declare module '@mui/material/styles' {
     }
   }
   interface PaletteColor {
+    '50': string
     '100': string
     '300': string
     '400': string
@@ -114,6 +115,7 @@ const theme = createTheme({
   palette: {
     primary: {
       main: PALETTE.PRIMARY_500,
+      50: PALETTE.PRIMARY_50,
       100: PALETTE.PRIMARY_100,
       300: PALETTE.PRIMARY_300,
       400: PALETTE.PRIMARY_400,
