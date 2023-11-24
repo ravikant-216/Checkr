@@ -26,6 +26,9 @@ declare module '@mui/material/styles' {
       STRUCTURAL_OVERLAY: string
       STRUCTURAL_SHADOW: string
     }
+    shadow: {
+      SHADOW_GEAY: string
+    }
   }
 
   interface PaletteOptions {
@@ -44,6 +47,9 @@ declare module '@mui/material/styles' {
       STRUCTURAL_ICON_DARK: string
       STRUCTURAL_OVERLAY: string
       STRUCTURAL_SHADOW: string
+    }
+    shadow: {
+      SHADOW_GEAY: string
     }
   }
   interface PaletteColor {
@@ -115,6 +121,9 @@ const theme = createTheme({
     },
   },
   palette: {
+    shadow: {
+      SHADOW_GEAY: PALETTE.SHADOW_GRAY,
+    },
     primary: {
       main: PALETTE.PRIMARY_500,
       50: PALETTE.PRIMARY_50,
