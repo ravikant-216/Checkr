@@ -85,3 +85,19 @@ export const AUTO_SEND_LABEL = 'Auto send post adverse action'
 export const AUTO_SEND_DAYS = '7'
 export const AUTO_SEND_DAYS_LABEL = 'days'
 export const BUTTON_TEXT = 'Preview Notice'
+export const STATUS = ['All Status', 'Clear', 'Consider']
+export const ADJUDICATION = ['All', 'Engaged', 'Pre adverse action']
+export const STATUSES = [
+  'All Status',
+  'Pending',
+  'Scheduled',
+  'Dispute',
+  'Canceled',
+  'Undeliverable',
+]
+export const CANDIDATE_INFO = 'Candidate Information'
+export const CANDIDATE_SEARCH = 'Search any candidate'
+export const ADJUDICATION_LABEL = 'Adjudication'
+export const STATUS_LABEL = 'Status'
+export const ADJUDICATION_LABEL_S = 'Adjudication'
+export const STATUS_LABEL_S = 'Status'

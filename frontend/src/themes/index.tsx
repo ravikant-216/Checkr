@@ -90,7 +90,7 @@ const theme = createTheme({
           [`.${inputLabelClasses.root}`]: {
             fontWeight: '400',
           },
-          borderRadius: '8px',
+          borderRadius: '6px',
           '& .MuiOutlinedInput-root': {
             '& fieldset': {
               borderColor: PALETTE.STRUCTURAL_STROKE,
@@ -101,7 +101,7 @@ const theme = createTheme({
             '&.Mui-focused fieldset': {
               borderColor: PALETTE.STRUCTURAL_STROKE,
             },
-            borderRadius: '8px',
+            borderRadius: '6px',
           },
         },
       },
