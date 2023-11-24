@@ -1,8 +1,9 @@
 import {
   Typography as MuiTypography,
   TypographyProps as MuiTypographyProps,
-  TypographyVariant,
 } from '@mui/material'
+
+import { TypographyVariant } from '@/utils/types'
 
 interface TypographyProps extends MuiTypographyProps {
   children: React.ReactNode

@@ -1,4 +1,4 @@
-export type TypograpyVarient =
+export type TypographyVariant =
   | 'h1'
   | 'h2'
   | 'subtitle1'

@@ -24,6 +24,7 @@ declare module '@mui/material/styles' {
       STRUCTURAL_ICON_LIGHT: string
       STRUCTURAL_ICON_DARK: string
       STRUCTURAL_OVERLAY: string
+      STRUCTURAL_SHADOW: string
     }
   }
 
@@ -42,6 +43,7 @@ declare module '@mui/material/styles' {
       STRUCTURAL_ICON_LIGHT: string
       STRUCTURAL_ICON_DARK: string
       STRUCTURAL_OVERLAY: string
+      STRUCTURAL_SHADOW: string
     }
   }
   interface PaletteColor {
@@ -141,6 +143,7 @@ const theme = createTheme({
       STRUCTURAL_ICON_LIGHT: PALETTE.STRUCTURAL_ICON_LIGHT,
       STRUCTURAL_ICON_DARK: PALETTE.STRUCTURAL_ICON_DARK,
       STRUCTURAL_OVERLAY: PALETTE.STRUCTURAL_OVERLAY,
+      STRUCTURAL_SHADOW: PALETTE.STRUCTURAL_SHADOW,
     },
   },
 

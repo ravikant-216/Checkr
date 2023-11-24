@@ -63,3 +63,25 @@ export const CANDIDATE_DATA: CardProps[] = [
   },
 ]
 export const FILTER = 'Filter'
+export const TITLE = 'Pre-Adverse Action Notice'
+export const FROM_LABEL = 'From:'
+export const FROM_EMAIL = 'kyle@checkr.com'
+export const TO_LABEL = 'To:'
+export const TO_EMAIL = 'john.smith@checkr.com'
+export const SUBJECT_LABEL = 'Subject:'
+export const SUBJECT_TEXT = 'Pre-adverse action notice - checkr-bpo'
+export const GREETING = 'Dear John Smith,'
+export const INTRO_TEXT =
+  'You recently authorized checkr-bpo (“the company”) to obtain consumer reports and/or invistigate consumer reportsabout you from a consumer reporting agency. The Company is considering taking action in whole or in past on information in such report(s) including the following specific items identified in the report prepared by Checkr, Inc.'
+export const CHARGES_LABEL = 'Select the charges for the pre adverse action'
+export const CHARGE_1 = 'Driving while license suspended'
+export const CHARGE_2 = 'Assault Domestic Violence'
+export const CHARGE_3 = 'Unable to verify employment history at Dunder Mifflin'
+export const DISPUTE_TEXT =
+  'If you wish to dispute the accuracy of the information in the report directly with the consumer reporting agency (i.e., the source of the informationcontained in the report), you should contact the agency identifield above directly.'
+export const SIGN_OFF = 'Sincerely,'
+export const SIGN_OFF_NAME = 'Checkr-bpo'
+export const AUTO_SEND_LABEL = 'Auto send post adverse action'
+export const AUTO_SEND_DAYS = '7'
+export const AUTO_SEND_DAYS_LABEL = 'days'
+export const BUTTON_TEXT = 'Preview Notice'
