@@ -112,3 +112,10 @@ export const DONT_RECEIVE_OTP = 'Didn’t receive the OTP? '
 export const RESEND_OTP = 'Resend OTP'
 export const EMAIL_PLACEHOLDER = 'Example@gmail.com'
 export const INVALID_EMAIL = 'Invalid email'
+
+export const paginationcardDetails = {
+  count: '10',
+  result: 'out of 84 results',
+  Perpage: '10 per page',
+  resultsfound: 'Results Found',
+}
