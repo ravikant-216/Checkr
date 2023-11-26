@@ -7,8 +7,9 @@ export interface CardProps {
   alt?: string
   heading: string
   selected?: boolean
+  onClick?: () => void
 }
-const Card = ({ src, alt, heading, selected }: CardProps) => {
+const Card = ({ src, alt, heading, selected, onClick }: CardProps) => {
   return (
     <Box
       sx={{
@@ -18,6 +19,7 @@ const Card = ({ src, alt, heading, selected }: CardProps) => {
           ? theme.palette.primary[300]
           : theme.palette.structural.STRUCTURAL_WHITE,
       }}
+      onClick={onClick}
     >
       <Stack direction={'row'} sx={{ alignItems: 'center' }}>
         <Icon
