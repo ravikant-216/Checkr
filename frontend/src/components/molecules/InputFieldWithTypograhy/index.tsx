@@ -5,6 +5,7 @@ import EyeClose from '@Assets/icons/unhide.svg'
 import TextField, { TextFieldPropType } from '@/components/atoms/TextField'
 import { Icon } from '@/components/atoms/Icon'
 import { useState } from 'react'
+import { TypographyVariant } from '@/utils/types'
 
 interface InputFieldWithTypographyProps
   extends Omit<TextFieldPropType, 'onChange' | 'label'> {
@@ -12,12 +13,14 @@ interface InputFieldWithTypographyProps
   onChange: TextFieldPropType['onChange']
   label: string
   placeholder?: string
+  typovariant?: TypographyVariant
 }
 
 const InputFieldWithTypography = ({
   type,
   onChange,
   label,
+  typovariant,
   ...props
 }: InputFieldWithTypographyProps) => {
   const theme = useTheme()
@@ -34,7 +37,7 @@ const InputFieldWithTypography = ({
     <FormControl sx={{ gap: 2.5 }}>
       <FormLabel>
         <Typography
-          variant="subtitle1"
+          variant={typovariant}
           color={theme.palette.text.mediumEmphasis}
         >
           {label}
