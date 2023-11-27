@@ -125,3 +125,22 @@ export const LogoutModalDetails = {
   cancel: 'Cancel',
   logout: 'Logout',
 }
+
+import home from '@Assets/icons/Dashboard.svg'
+import candidates from '@Assets/icons/Contacts.svg'
+import actions from '@Assets/icons/hammer.svg'
+import analytics from '@Assets/icons/Analytics.svg'
+import logs from '@Assets/icons/logs.svg'
+import account from '@Assets/icons/Account.svg'
+import screenings from '@Assets/icons/Screening.svg'
+
+export const navItems = [
+  { id: 1, heading: 'Home', src: home },
+  { id: 2, heading: 'Candidates', src: candidates },
+  { id: 3, heading: 'Adverse Actions', src: actions },
+  { id: 4, heading: 'Logs', src: logs },
+  { id: 5, heading: 'Analytics', src: analytics },
+  { id: 6, heading: 'Account', src: account },
+  { id: 7, heading: 'Screenings', src: screenings },
+]
+export const RECRUIT = 'RECRUIT'
