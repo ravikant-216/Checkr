@@ -32,7 +32,7 @@ export interface SiginProps {
   handleSignin?: () => void
   handleAuth?: () => void
 }
-const Wrapper = styled(Box)({
+export const Wrapper = styled(Box)({
   width: '480px',
   padding: '40px 50px 50px 50px',
   boxShadow: `0px 4px 28px 0px ${theme.palette.shadow.SHADOW_GEAY}`,
@@ -40,18 +40,18 @@ const Wrapper = styled(Box)({
   height: '672px',
   backgroundColor: `${theme.palette.structural.STRUCTURAL_WHITE}`,
 })
-const HeadingWrapper = styled(Box)({
+export const HeadingWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   gap: '10px',
 })
-const InputWrapper = styled(Box)({
+export const InputWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   gap: '20px',
   paddingTop: '25px',
 })
-const CheckboxWrapper = styled(Box)({
+export const CheckboxWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -59,13 +59,13 @@ const CheckboxWrapper = styled(Box)({
   alignItems: 'center',
   margin: '0 0 0 -10px',
 })
-const ButtonWrapper = styled(Box)({
+export const ButtonWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'column',
   paddingTop: '8px',
   gap: '20px',
 })
-const TypoWrapper = styled(Box)({
+export const TypoWrapper = styled(Box)({
   display: 'flex',
   flexDirection: 'row',
   paddingTop: '30px',

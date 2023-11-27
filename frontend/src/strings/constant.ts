@@ -119,6 +119,7 @@ export const paginationcardDetails = {
   Perpage: '10 per page',
   resultsfound: 'Results Found',
 }
+
 export const LogoutModalDetails = {
   Heading: 'Confirm Logout',
   Subheading: 'Are you sure you want to logout?',
@@ -160,3 +161,12 @@ export const DONT_HAVE_ACCOUNT = "Don't have an account?"
 export const SIGN_UP = 'Sign up'
 export const EMAIL_PLACEHOLDR = 'abc@gmail.com'
 export const PASSWORD_PLACEHOLDER = '********'
+
+export const PLEASE_SIGN_UP = 'Please sign up to start exploring the platform'
+export const PASSWORD_DOESNOT_MATCH = 'Password does not match'
+export const CONFIRM_PASSWORD = 'Confirm Password'
+export const CHECK_BOX_LABEL = 'I agree to the'
+export const PRIVACY_POLICY_LABEL = 'Privacy Policy'
+export const ALREADY_MEMBERS_LABEL = 'Already a member?'
+export const INVALID_PASSWORD_LABEL =
+  'password must contain 8 characters with at least one uppercase, one lowercase, one special character, and a number'
