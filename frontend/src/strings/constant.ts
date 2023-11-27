@@ -144,3 +144,19 @@ export const navItems = [
   { id: 7, heading: 'Screenings', src: screenings },
 ]
 export const RECRUIT = 'RECRUIT'
+export const SIGN_IN = 'Sign In'
+export const PLEASE_ENTER_CREDENTIALS = 'Please enter your login credentials'
+export const EMAIL_LABEL = 'Email'
+export const INVALID_EMAIL_FORMAT = 'Invalid email format'
+export const PASSWORD_LABEL = 'Password'
+export const INVALID_PASSWORD = 'Enter a valid password'
+export const REMEMBER_ME = 'Remember me'
+export const FORGT_PASSWORD = 'Forgot Password?'
+export const SIGN_IN_BUTTON = 'Sign In'
+export const OR = 'or'
+export const SIGN_IN_WITH_GOOGLE = 'Sign in with Google'
+export const SIGN_IN_WITH_GITHUB = 'Sign in with Github'
+export const DONT_HAVE_ACCOUNT = "Don't have an account?"
+export const SIGN_UP = 'Sign up'
+export const EMAIL_PLACEHOLDR = 'abc@gmail.com'
+export const PASSWORD_PLACEHOLDER = '********'
