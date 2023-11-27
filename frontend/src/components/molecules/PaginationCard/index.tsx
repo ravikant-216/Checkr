@@ -1,6 +1,12 @@
 import { Icon } from '@/components/atoms/Icon'
 import theme from '@/themes'
-import { Box, Pagination, styled } from '@mui/material'
+import {
+  Box,
+  Pagination,
+  SxProps,
+  styled,
+  PaginationProps,
+} from '@mui/material'
 import Typography from '@/components/atoms/Typography'
 import ArrowDown from '@Assets/icons/Arrow_Down.svg'
 import { paginationcardDetails } from '@/strings/constant'
@@ -10,6 +16,9 @@ export interface PaginationCardProps {
   count?: string
   width: string
   height: string
+  sx?: SxProps
+  paginationProps?: PaginationProps
+  onPageChange?: (event: React.ChangeEvent<unknown>, pageNo: number) => void
 }
 
 const Wrapper = styled(Box)(({ width, height }: PaginationCardProps) => ({
@@ -19,9 +28,7 @@ const Wrapper = styled(Box)(({ width, height }: PaginationCardProps) => ({
   width: width,
   height: height,
   background: theme.palette.structural.STRUCTURAL_WHITE,
-  border: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
-  borderTop: 0,
-  borderRadius: '0px 0px 10px 10px',
+  borderTop: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
   padding: '10px 12px',
 }))
 
@@ -60,9 +67,12 @@ export const PaginationCard = ({
   height,
   isFiltered,
   count,
+  sx,
+  paginationProps,
+  onPageChange,
 }: PaginationCardProps) => {
   return (
-    <Wrapper width={width} height={height}>
+    <Wrapper width={width} height={height} sx={sx}>
       {!isFiltered ? (
         <>
           <StyledBox>
@@ -92,6 +102,8 @@ export const PaginationCard = ({
           </StyledBox>
           <Pagination
             count={3}
+            {...paginationProps}
+            onChange={onPageChange}
             size="small"
             sx={paginationStyles}
             shape="rounded"
