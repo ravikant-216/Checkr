@@ -170,3 +170,28 @@ export const PRIVACY_POLICY_LABEL = 'Privacy Policy'
 export const ALREADY_MEMBERS_LABEL = 'Already a member?'
 export const INVALID_PASSWORD_LABEL =
   'password must contain 8 characters with at least one uppercase, one lowercase, one special character, and a number'
+export const ASSAULTTYPE = 'Assault Domestic Violence'
+export const ATTACHMENTS = 'Attachments'
+export const STATEMENTS: string[] = [
+  'Please carefully review the list of charges (in bold) and your contact information.',
+  `Please note that we will send the corresponding post adverse action email automatically\nafter 7 days.`,
+]
+export const DETAILS: string[] = ['From: ', 'To: ', 'subject: ']
+export const ATTACHMENT_DETAILS: string[] = [
+  'Summary of right under the FCRA',
+  'Copy of background report',
+]
+
+export const SALUTATION: string[] = [
+  'Dear ',
+  'You recently authorized checkr-bpo (“the company”) to obtain consumer reports and/or invistigate consumer reportsabout you from a consumer reporting agency. The Company is considering taking action in whole or in past\non information in such report(s) including the following specific items identified in the report prepared by Checkr,\nInc.',
+]
+
+export const EMAIL_BODY: string[] = [
+  'If you wish to dispute the accuracy of the information in the report directly with the consumer reporting agency (i.e.,\nthe source of the informationcontained in the report), you should contact the agency identifield above directly.',
+  'Sincerely,\nCheckr-bpo',
+]
+export const NOTICE_MODAL_TITILE = 'Pre-Adverse Action Notice'
+export const SUBMIT_NOTICE_BUTTON = 'Submit Notice'
+export const SUBJECT = 'Pre-adverse action notice - checkr-bpo'
+export const USER_EMAIL_INFO = 'kyle@checkr.com'
