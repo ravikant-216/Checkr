@@ -13,7 +13,8 @@
     "build-storybook": "storybook build",
     "test:jest": "jest --config=jest.config.ts",
     "test:jest:watch": "jest --config=jest.config.ts  --watchAll",
-    "test:jest:coverage": "jest --config=jest.config.ts --coverage"
+    "test:jest:coverage": "jest --config=jest.config.ts --coverage",
+    "chromatic": "npx chromatic --project-token=chpt_627a363d3dac01f"
   },
   "keywords": [],
   "author": "",
@@ -57,6 +58,7 @@
     "@types/react-dom": "^18.2.8",
     "@typescript-eslint/parser": "^6.7.3",
     "babel-loader": "^9.1.3",
+    "chromatic": "^9.1.0",
     "css-loader": "^6.8.1",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^8.10.0",
@@ -80,5 +82,7 @@
     "webpack": "^5.88.2",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "bootcamp-140-checkr@1.0.0"
 }
