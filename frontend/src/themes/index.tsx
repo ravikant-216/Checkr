@@ -17,6 +17,8 @@ declare module '@mui/material/styles' {
       ACCENT_LIGHT_GREEN: string
       ACCENT_YELLOW: string
       ACCENT_LIGHT_YELLOW: string
+      ACCENT_RED: string
+      ACCENT_LIGHT_RED: string
     }
     structural: {
       STRUCTURAL_WHITE: string
@@ -39,6 +41,8 @@ declare module '@mui/material/styles' {
       ACCENT_LIGHT_GREEN: string
       ACCENT_YELLOW: string
       ACCENT_LIGHT_YELLOW: string
+      ACCENT_RED: string
+      ACCENT_LIGHT_RED: string
     }
     structural: {
       STRUCTURAL_WHITE: string
@@ -140,6 +144,8 @@ const theme = createTheme({
       ACCENT_LIGHT_GREEN: PALETTE.ACCENT_LIGHT_GREEN,
       ACCENT_YELLOW: PALETTE.ACCENT_YELLOW,
       ACCENT_LIGHT_YELLOW: PALETTE.ACCENT_LIGHT_YELLOW,
+      ACCENT_RED: PALETTE.ACCENT_RED,
+      ACCENT_LIGHT_RED: PALETTE.ACCENT_LIGHT_RED,
     },
     text: {
       lowEmphasis: PALETTE.TEXT_LOW_EMPHASIS,
