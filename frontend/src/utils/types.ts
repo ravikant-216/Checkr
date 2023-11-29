@@ -24,3 +24,5 @@ export interface CandidateInformation {
   location: string
   date: string
 }
+
+export type NavbarLabel = 'Candidates' | 'Adverse Actions'

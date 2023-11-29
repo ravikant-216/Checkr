@@ -7,13 +7,14 @@ import { Icon } from '@/components/atoms/Icon'
 import logout from '@Assets/icons/logout.svg'
 import theme from '@/themes'
 import { RECRUIT, navItems } from '@/strings/constant'
+import { NavbarLabel } from '@/utils/types'
 
 export interface NavbarProps {
   userName?: string
   userInfo?: string
   avatar?: string
   handleLogout?: () => void
-  label: string
+  label: NavbarLabel
 }
 const Wrapper = styled(Box)({
   width: "min('238px','90vw')",

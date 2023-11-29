@@ -143,7 +143,7 @@ export const navItems = [
   { id: 5, heading: 'Analytics', src: analytics },
   { id: 6, heading: 'Account', src: account },
   { id: 7, heading: 'Screenings', src: screenings },
-]
+] as const
 export const RECRUIT = 'RECRUIT'
 export const SIGN_IN = 'Sign In'
 export const PLEASE_ENTER_CREDENTIALS = 'Please enter your login credentials'
