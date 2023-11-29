@@ -1,0 +1,104 @@
+{
+  "application_status": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "status_id": 2,
+      "pre_notice_time": "2023-11-28",
+      "post_notice_time": "2023-11-29",
+      "candidate_id": 1
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "status_id": 3,
+      "pre_notice_time": "2023-11-27",
+      "post_notice_time": "2023-11-30",
+      "candidate_id": 2
+    }
+  ],
+  "candidates": [
+    {
+      "id": 1,
+      "name": "Alice",
+      "adjudication": "CLEAR",
+      "status_id": 2,
+      "location": "Chitarpur",
+      "date": "2023-11-28",
+      "email": "alice@example.com",
+      "dob": "1995-01-01",
+      "phone_number": "1234567890",
+      "zipcode": "123456",
+      "social_security": "111-11-1111",
+      "driver_license": "DL-123456",
+      "created_at": "2023-11-01 10:00:00",
+      "package": "Basic",
+      "report_created_at": "2023-11-28 12:00:00",
+      "report_completion_date": "2023-11-28 15:00:00",
+      "turn_around_time": "03:00:00"
+    },
+    {
+      "id": 2,
+      "name": "Bob",
+      "adjudication": "CONSIDER",
+      "status_id": 3,
+      "location": "Ranchi",
+      "date": "2023-11-27",
+      "email": "bob@example.com",
+      "dob": "1996-02-02",
+      "phone_number": "0987654321",
+      "zipcode": "654321",
+      "social_security": "222-22-2222",
+      "driver_license": "DL-654321",
+      "created_at": "2023-11-02 11:00:00",
+      "package": "Premium",
+      "report_created_at": "2023-11-27 13:00:00",
+      "report_completion_date": "2023-11-30 16:00:00",
+      "turn_around_time": "03:00:00"
+    }
+  ],
+  "status": [
+    {
+      "id": 1,
+      "status": "CLEAR"
+    },
+    {
+      "id": 2,
+      "status": "CONSIDER"
+    },
+    {
+      "id": 3,
+      "status": "SCHEDULE"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin",
+      "email": "admin@example.com",
+      "password": "admin123"
+    },
+    {
+      "id": 2,
+      "name": "User",
+      "email": "user@example.com",
+      "password": "user123"
+    }
+  ],
+  "verification_record": [
+    {
+      "id": 1,
+      "search": "Criminal Record",
+      "status_id": 2,
+      "date": "2023-11-28",
+      "candidate_id": 1
+    },
+    {
+      "id": 2,
+      "search": "Education Verification",
+      "status_id": 3,
+      "date": "2023-11-27",
+      "candidate_id": 2
+    }
+  ]
+}
