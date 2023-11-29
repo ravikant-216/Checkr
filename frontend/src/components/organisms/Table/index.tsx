@@ -58,7 +58,10 @@ function Table<T>({
         <StyledTableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell align="left" key={column.key as string}>
+              <TableCell
+                align={column.align ?? 'left'}
+                key={column.key as string}
+              >
                 <Typography>{column.label}</Typography>
               </TableCell>
             ))}
@@ -73,7 +76,7 @@ function Table<T>({
               {columns.map((column) => (
                 <TableCell
                   component="th"
-                  align="left"
+                  align={column.align ?? 'left'}
                   scope="row"
                   sx={{ p: 2 }}
                   key={`${column.key as string} + ${

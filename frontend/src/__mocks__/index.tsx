@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import theme from '@/themes'
 import { CandidateInformation, TableColumn } from '@/utils/types'
-import { Button, Chip, Typography } from '@mui/material'
+import { Button, Chip, Stack, Typography } from '@mui/material'
 
 export const CandidateInformationTableColumnDefination: TableColumn<CandidateInformation>[] =
   [
@@ -43,7 +44,16 @@ export const CandidateInformationTableColumnDefination: TableColumn<CandidateInf
     {
       key: 'date',
       label: 'Date',
-      customDefination: (item) => <Typography>{item.date}</Typography>,
+      customDefination: (item) => (
+        <Typography textAlign="right">{item.date}</Typography>
+      ),
+      align: 'right',
+    },
+    {
+      key: 'dateff' as any,
+      label: '',
+      customDefination: () => <Stack width="30px"></Stack>,
+      align: 'left',
     },
   ]
 

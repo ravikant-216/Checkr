@@ -54,7 +54,7 @@ const FilterButton = ({ children }: DropDownButtonProps): React.ReactNode => {
             },
           }}
         >
-          {FILTER}
+          <Typography variant="body1">{FILTER}</Typography>
         </Button>
       </Stack>
       <StyledPopover
