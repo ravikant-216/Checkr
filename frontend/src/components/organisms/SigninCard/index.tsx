@@ -25,11 +25,12 @@ import {
   SIGN_UP,
 } from '@/strings/constant'
 import { useAuthState } from './hook'
+import { ChangeEvent, useState } from 'react'
 
 export interface SiginProps {
   handleSignup?: () => void
   handleForgotpassword?: () => void
-  handleSignin?: () => void
+  handleSignin: (email: string, password: string) => void
   handleAuth?: () => void
 }
 export const Wrapper = styled(Box)({
@@ -89,6 +90,10 @@ export const SigninCard = ({
   } = useAuthState()
   const isButtonDisabled =
     isValidEmail && isValidPassword && email.length > 0 && password.length > 0
+  const [checked, setChecked] = useState<boolean>(false)
+  const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked)
+  }
   return (
     <>
       {' '}
@@ -124,7 +129,11 @@ export const SigninCard = ({
           />
         </InputWrapper>
         <CheckboxWrapper>
-          <CheckboxLabels label={REMEMBER_ME} checked={false} />
+          <CheckboxLabels
+            label={REMEMBER_ME}
+            checked={checked}
+            onChange={handleChecked}
+          />
           <Typography
             variant="body1"
             color={theme.palette.primary[500]}
@@ -145,7 +154,7 @@ export const SigninCard = ({
                 ? theme.palette.primary[500]
                 : theme.palette.primary[400]
             }
-            onClick={handleSignin}
+            onClick={() => handleSignin(email, password)}
             disabled={!isButtonDisabled}
             buttonTextColor={theme.palette.structural.STRUCTURAL_WHITE}
           />

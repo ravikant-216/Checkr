@@ -18,17 +18,17 @@ const LeftContainer = styled(RightContainer)({
 })
 
 export interface AuthTemplateProps {
-  rightComponent?: React.ReactNode
+  children?: React.ReactNode
 }
 
-export const AuthTemplate = ({ rightComponent }: AuthTemplateProps) => {
+export const AuthTemplate = ({ children }: AuthTemplateProps) => {
   return (
     <Grid container>
       <LeftContainer item xs={6} md={6}>
         <Icon src={Illustration} alt="Human Image" />
       </LeftContainer>
       <RightContainer item xs={12} md={6}>
-        {rightComponent ?? RIGHT_COMPONENT}
+        {children ?? RIGHT_COMPONENT}
       </RightContainer>
     </Grid>
   )

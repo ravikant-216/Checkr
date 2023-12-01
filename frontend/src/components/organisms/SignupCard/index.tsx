@@ -2,9 +2,9 @@ import { ButtonComponent } from '@/components/atoms/Button'
 import Typography from '@/components/atoms/Typography'
 import CheckboxLabels from '@/components/molecules/CheckBoxLabel'
 import InputFieldWithTypography from '@/components/molecules/InputFieldWithTypograhy'
-import { Box, styled } from '@mui/material'
+import { Box, Stack, styled } from '@mui/material'
 import theme from '@/themes'
-import { useState } from 'react'
+import { ChangeEvent, useState } from 'react'
 import { PASSWORD_REGEX } from '@/utils/regex'
 import {
   ALREADY_MEMBERS_LABEL,
@@ -24,7 +24,6 @@ import {
 } from '@/strings/constant'
 import { useAuthState } from '../SigninCard/hook'
 import {
-  CheckboxWrapper,
   HeadingWrapper,
   InputWrapper,
   TypoWrapper,
@@ -32,7 +31,7 @@ import {
 } from '../SigninCard'
 
 export interface SignupProps {
-  handleSignup?: () => void
+  handleSignup: (email: string, password: string) => void
   handleSignin?: () => void
 }
 
@@ -53,6 +52,10 @@ export const SignupCard = ({ handleSignin, handleSignup }: SignupProps) => {
     handlePasswordChange,
   } = useAuthState()
   const [confirmPassword, setConfirmPassword] = useState<string>('')
+  const [checked, setChecked] = useState<boolean>(false)
+  const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
+    setChecked(event.target.checked)
+  }
   const [isValidConfirmPassword, setIsValidConfirmPassword] =
     useState<boolean>(true)
   const hanldeConfirmPasswordChange = (
@@ -123,16 +126,21 @@ export const SignupCard = ({ handleSignin, handleSignup }: SignupProps) => {
             data-testid="confirm-password-input"
           />
         </InputWrapper>
-        <CheckboxWrapper>
-          <CheckboxLabels label={CHECK_BOX_LABEL} checked={false} />
+        <Stack direction={'row'} alignItems={'center'} ml={-2.5}>
+          <CheckboxLabels
+            label={CHECK_BOX_LABEL}
+            checked={checked}
+            onChange={handleChecked}
+          />
           <Typography
             variant="body1"
             color={theme.palette.primary[500]}
             style={{ cursor: 'pointer' }}
+            pl={2}
           >
             {PRIVACY_POLICY_LABEL}
           </Typography>
-        </CheckboxWrapper>
+        </Stack>
         <ButtonsWrapper>
           <ButtonComponent
             buttonVariant="contained"
@@ -144,7 +152,7 @@ export const SignupCard = ({ handleSignin, handleSignup }: SignupProps) => {
                 ? theme.palette.primary[500]
                 : theme.palette.primary[400]
             }
-            onClick={handleSignup}
+            onClick={() => handleSignup(email, password)}
             disabled={!isButtonDisabled}
             buttonTextColor={theme.palette.structural.STRUCTURAL_WHITE}
             data-testid="signup-button"

@@ -55,3 +55,9 @@ export type CandidateDetail = {
   report_completion_date: string
   turn_around_time: string
 }
+export interface User {
+  id: string
+  name: string
+  email: string
+  password: string
+}

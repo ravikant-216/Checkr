@@ -2235,16 +2235,28 @@
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Admin",
       "email": "admin@example.com",
-      "password": "admin123"
+      "password": "Admin123@"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "User",
       "email": "user@example.com",
       "password": "user123"
+    },
+    {
+      "name": "admin",
+      "email": "jinan@gmail.com",
+      "password": "Jinan@123",
+      "id": "3"
+    },
+    {
+      "name": "admin",
+      "email": "admin1@example.com",
+      "password": "Admin2@123",
+      "id": "6XmbJ8c"
     }
   ],
   "verification_record": [
