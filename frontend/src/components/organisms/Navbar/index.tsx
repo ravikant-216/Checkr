@@ -18,8 +18,8 @@ export interface NavbarProps {
 }
 const Wrapper = styled(Box)({
   width: "min('238px','90vw')",
-  minHeight: "min('720px','90vh')",
-  height: '90vh',
+  minHeight: "min('720px','97vh')",
+  height: '97vh',
   boxShadow: `0px 4px 28px 0px ${theme.palette.shadow.SHADOW_GEAY}`,
   backgroundColor: `${theme.palette.structural.STRUCTURAL_WHITE}`,
   border: '6px',
@@ -31,6 +31,11 @@ const Wrapper = styled(Box)({
 
 const NavWrapper = styled(Box)({
   padding: '30px 20px 0 20px',
+})
+const Section = styled(Box)({
+  display: 'flex',
+  flexDirection: 'row',
+  gap: '15px',
 })
 
 const NavItems = styled(Box)({
@@ -46,6 +51,7 @@ const LogoutSection = styled(Box)({
   padding: '20px',
   display: 'flex',
   flexDirection: 'row',
+  justifyContent: 'space-between',
   borderTop: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
   alignItems: 'center',
   gap: '12px',
@@ -93,15 +99,20 @@ export const Navbar: React.FC<NavbarProps> = ({
         </NavItems>
       </NavWrapper>
       <LogoutSection>
-        <Avatar src={avatar} />
-        <TypoWrapper>
-          <Typography variant="body1" color={theme.palette.text.highEmphasis}>
-            {userName}
-          </Typography>
-          <Typography variant="caption2" color={theme.palette.text.lowEmphasis}>
-            {userInfo}
-          </Typography>
-        </TypoWrapper>
+        <Section>
+          <Avatar src={avatar} />
+          <TypoWrapper>
+            <Typography variant="body1" color={theme.palette.text.highEmphasis}>
+              {userName}
+            </Typography>
+            <Typography
+              variant="caption2"
+              color={theme.palette.text.lowEmphasis}
+            >
+              {userInfo}
+            </Typography>
+          </TypoWrapper>
+        </Section>
         <Icon
           src={logout}
           alt="logout icon"
