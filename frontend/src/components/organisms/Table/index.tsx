@@ -54,7 +54,7 @@ function Table<T>({
   return (
     <TableContainer component={StyledPaper}>
       <Stack>{tableHeader}</Stack>
-      <MuiTable>
+      <MuiTable size="small">
         <StyledTableHead>
           <TableRow>
             {columns.map((column) => (
@@ -94,7 +94,7 @@ function Table<T>({
       </MuiTable>
       <Stack position="absolute" bottom="0" width="100%">
         <PaginationCard
-          width="100%"
+          width="97.8%"
           height="100%"
           isFiltered={isFiltered}
           paginationProps={{
@@ -102,6 +102,7 @@ function Table<T>({
             page: page,
           }}
           onPageChange={handlePageChange}
+          count={pageCount}
         />
       </Stack>
     </TableContainer>

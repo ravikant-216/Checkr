@@ -1,5 +1,5 @@
-import HomePageTeamplates from './components/templates/HomePageTemplates'
+import CandidatePage from './pages/CandidatePage'
 
 export const App = () => {
-  return <HomePageTeamplates />
+  return <CandidatePage />
 }
