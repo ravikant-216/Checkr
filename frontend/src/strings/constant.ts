@@ -193,6 +193,8 @@ export const EXPORT_CSV = 'Export Candidate Reports CSV'
 export const REPORTS_FROM = 'Reports From'
 export const REPORTS_TO = 'Reports To'
 export const EXPORT_REPORT = 'Export Report'
+
 export const WRONG_CREDENTIALS = 'Email or Password is Incorrect'
 export const EXIST_CANDIDATES = 'Email already Exist Kindly Login'
 export const API_URL = 'http://localhost:3001'
+export const ADVERSE_ACTIONS = 'Adverse Actions'

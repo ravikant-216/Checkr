@@ -17,7 +17,14 @@ export interface TableColumn<I> {
 }
 
 export type StatusType = 'CLEAR' | 'CONSIDER'
-
+export type AdveractionStatusType = 'SCHEDULED'
+export interface Adveraction {
+  id: number
+  name: string
+  status: 'SCHEDULED'
+  prenoticedate: string
+  postnoticedate: string
+}
 export interface CandidateInformation {
   id: number
   name: string
@@ -54,6 +61,14 @@ export type CandidateDetail = {
   report_created_at: string
   report_completion_date: string
   turn_around_time: string
+}
+
+export type AdverseactionDetail = {
+  id: string
+  name: string
+  status: AdveractionStatusType
+  pre_notice_date: string
+  post_notice_date: string
 }
 export interface User {
   id: string
