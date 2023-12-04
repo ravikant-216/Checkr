@@ -1,4 +1,4 @@
-import { User } from '@/utils/types'
+import { AdverseactionDetail, User } from '@/utils/types'
 import api_routes from './api_routes'
 import apiClient from './axios'
 export const checkUser = async (email: string, password: string) => {
@@ -46,4 +46,9 @@ export const addUser = async (
   })
 
   return newUserResponse.data as User
+}
+
+export const getAllAdverseAction = async (): Promise<AdverseactionDetail[]> => {
+  const res = await apiClient.get(api_routes.ADVERSE_ACTION)
+  return res.data
 }

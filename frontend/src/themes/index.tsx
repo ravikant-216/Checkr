@@ -1,10 +1,6 @@
 import { SxProps, createTheme } from '@mui/material/styles'
 import { PALETTE } from './themeConstant'
-import {
-  chipClasses,
-  inputLabelClasses,
-  outlinedInputClasses,
-} from '@mui/material'
+import { inputLabelClasses, outlinedInputClasses } from '@mui/material'
 declare module '@mui/material/styles' {
   interface TypeText {
     white: string
@@ -132,6 +128,10 @@ const theme = createTheme({
         colorSecondary: {
           backgroundColor: PALETTE.ACCENT_LIGHT_YELLOW,
           color: PALETTE.ACCENT_YELLOW,
+        },
+        colorInfo: {
+          backgroundColor: PALETTE.ACCENT_LIGHT_BLUE,
+          color: PALETTE.ACCENT_BLUE,
         },
       },
     },
