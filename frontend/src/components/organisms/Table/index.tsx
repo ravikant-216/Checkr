@@ -21,6 +21,8 @@ export interface TableProps<T> {
   page?: number
   onPageChange?: (page: number) => void
   pageCount?: number
+  showPagination?: boolean
+  height?: string
 }
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
@@ -47,12 +49,14 @@ function Table<T>({
   page = 1,
   pageCount = 3,
   onPageChange,
+  showPagination = true,
+  height,
 }: Readonly<TableProps<T>>) {
   const handlePageChange = (_e: React.ChangeEvent<unknown>, page: number) => {
     onPageChange?.(page)
   }
   return (
-    <TableContainer component={StyledPaper}>
+    <TableContainer component={StyledPaper} sx={{ height }}>
       <Stack>{tableHeader}</Stack>
       <MuiTable size="small">
         <StyledTableHead>
@@ -92,19 +96,21 @@ function Table<T>({
           ))}
         </TableBody>
       </MuiTable>
-      <Stack position="absolute" bottom="0" width="100%">
-        <PaginationCard
-          width="97.8%"
-          height="100%"
-          isFiltered={isFiltered}
-          paginationProps={{
-            count: pageCount,
-            page: page,
-          }}
-          onPageChange={handlePageChange}
-          count={pageCount}
-        />
-      </Stack>
+      {showPagination && (
+        <Stack position="absolute" bottom="0" width="100%">
+          <PaginationCard
+            width="100%"
+            height="100%"
+            isFiltered={isFiltered}
+            paginationProps={{
+              count: pageCount,
+              page: page,
+            }}
+            count={pageCount + ''}
+            onPageChange={handlePageChange}
+          />
+        </Stack>
+      )}
     </TableContainer>
   )
 }

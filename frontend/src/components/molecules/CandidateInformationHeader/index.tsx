@@ -14,6 +14,7 @@ const InnerBox = styled(Box)({
   gap: '15px',
 })
 const HeadingBox = styled(Box)({
+  cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
@@ -27,6 +28,7 @@ export interface CandidateInforHeaderProps {
   firstButtonIcon?: React.ReactNode
   secondButtonIcon?: React.ReactNode
   onfirstButtonclick?: () => void
+  onBackIconClick?: () => void
   onSecondButtonclick?: () => void
   backIcon?: string
 }
@@ -38,13 +40,18 @@ export const CandidateInforHeader = ({
   secondButtonIcon,
   onfirstButtonclick,
   onSecondButtonclick,
+  onBackIconClick,
   backIcon,
 }: CandidateInforHeaderProps) => {
   return (
     <StyledBox>
       {backIcon && (
-        <HeadingBox>
-          <Icon src={backIcon} style={{ padding: '0 15px 0 0' }} />
+        <HeadingBox onClick={onBackIconClick}>
+          <Icon
+            src={backIcon}
+            style={{ padding: '0 15px 0 0' }}
+            alt="Back Button"
+          />
           <Typography
             variant="h1"
             color={theme.palette.text.highEmphasis}

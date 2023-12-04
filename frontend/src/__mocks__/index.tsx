@@ -1,6 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import theme from '@/themes'
-import { CandidateInformation, TableColumn } from '@/utils/types'
+import {
+  CandidateDetail,
+  CandidateInformation,
+  Count_Records,
+  TableColumn,
+} from '@/utils/types'
 import { Button, Chip, Stack, Typography } from '@mui/material'
 
 export const CandidateInformationTableColumnDefination: TableColumn<CandidateInformation>[] =
@@ -144,7 +149,7 @@ export const CANDIDATE: CandidateInformation[] = [
   },
 ]
 
-export const CANDIDATES = [
+export const CANDIDATES: CandidateDetail[] = [
   {
     id: 'f4aed27a-4322-46fd-aae4-db4620df2aa3',
     name: 'Christy',
@@ -217,7 +222,7 @@ export const CANDIDATES = [
     adjudication: '-',
     status: {
       id: '3c32d82f-6a3a-454c-ace6-d53883b48aeb',
-      status: 'SCHEDULE',
+      status: 'CONSIDER',
     },
     location: 'Schmittchester',
     date: '2024-05-21T03:17:01.240Z',
@@ -232,5 +237,37 @@ export const CANDIDATES = [
     report_created_at: '2022-12-21T01:29:45.564Z',
     report_completion_date: '2023-02-28T15:19:33.457Z',
     turn_around_time: '0',
+  },
+]
+export const COURT_RECORD: Count_Records[] = [
+  {
+    id: 'fe05ff66-eb9e-4713-924b-4b22667d82a7',
+    search: 'SSN Verification',
+    status: 'CLEAR',
+    date: '2023-07-24T01:15:48.057Z',
+  },
+  {
+    id: 'e6d70a0a-8005-491d-8b14-077108abf9c4',
+    search: 'Sex Offender',
+    status: 'CONSIDER',
+    date: '2023-08-26T02:22:58.139Z',
+  },
+  {
+    id: '6bbc4489-5415-4a4a-bfce-f21a7852bbcf',
+    search: 'Global Watchlist',
+    status: 'CLEAR',
+    date: '2023-07-06T10:17:25.480Z',
+  },
+  {
+    id: 'e67545d3-2b23-4e4d-891b-d4c9b3a0ff92',
+    search: 'Federal Criminal',
+    status: 'CLEAR',
+    date: '2023-09-20T00:52:33.939Z',
+  },
+  {
+    id: '4e8ebb6d-ad4e-43a9-a1e8-1d781e8d797a',
+    search: 'County Criminal',
+    status: 'CLEAR',
+    date: '2023-07-28T17:36:01.489Z',
   },
 ]

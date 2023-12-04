@@ -8,7 +8,8 @@ import {
 } from 'react-router-dom'
 import { useCallback, useEffect } from 'react'
 import SignUpPage from './pages/SignUpPage'
-import { Icon } from './components/atoms/Icon'
+import CandidateDetailPage from './pages/CandidateDetailPage'
+import CandidatePage from './pages/CandidatePage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import OtpPage from './pages/OtpPage'
 const UnAuthenticateRoute = () => {
@@ -35,7 +36,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'dashboard',
-        element: <Icon />, // will change this to dashboard component
+        element: <CandidatePage />, // will change this to dashboard component
+      },
+      {
+        path: 'candidate/:id',
+        element: <CandidateDetailPage />,
       },
     ],
   },

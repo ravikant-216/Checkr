@@ -36,7 +36,7 @@ export interface CandidateInformation {
 
 export type NavbarLabel = 'Candidates' | 'Adverse Actions'
 
-export type ADVERSE_ACTION = 'ADVERSE ACTION' | '-'
+export type ADVERSE_ACTION = 'ADVERSE ACTION' | '-' | 'ENGAGE'
 
 export type Status = {
   id: string
@@ -75,4 +75,10 @@ export interface User {
   name: string
   email: string
   password: string
+}
+export interface Count_Records {
+  id: string
+  search: string
+  status: 'CLEAR' | 'CONSIDER'
+  date: string
 }

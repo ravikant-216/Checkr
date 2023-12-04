@@ -18,8 +18,13 @@ export const ColumnDefination: TableColumn<CandidateDetail>[] = [
     label: 'ADJUDICATION',
     key: 'adjudication',
     customDefination: (row) =>
-      row.adjudication === 'ADVERSE ACTION' ? (
-        <Chip label={row.adjudication} color="secondary" />
+      row.adjudication === 'ADVERSE ACTION' || row.adjudication === 'ENGAGE' ? (
+        <Chip
+          label={row.adjudication}
+          color={
+            row.adjudication === 'ADVERSE ACTION' ? 'secondary' : 'primary'
+          }
+        />
       ) : (
         <Typography variant="body1">{row.adjudication}</Typography>
       ),

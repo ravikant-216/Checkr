@@ -6,6 +6,16 @@ import DOB from '@Assets/icons/DOB.svg'
 import location from '@Assets/icons/Location.svg'
 import security from '@Assets/icons/Security.svg'
 import calendar from '@Assets/icons/Calendar.svg'
+import StatusIcon from '@Assets/icons/Clear.svg'
+import HammerIcon from '@Assets/icons/hammer.svg'
+import PackageIcon from '@Assets/icons/Package.svg'
+import ClockIcon from '@Assets/icons/Clock.svg'
+import home from '@Assets/icons/Dashboard.svg'
+import candidates from '@Assets/icons/Contacts.svg'
+import analytics from '@Assets/icons/Analytics.svg'
+import logs from '@Assets/icons/logs.svg'
+import account from '@Assets/icons/Account.svg'
+import screenings from '@Assets/icons/Screening.svg'
 
 export const EXPORT_SUCCESS =
   'Download link was successfully sent to your email'
@@ -120,18 +130,10 @@ export const LogoutModalDetails = {
   logout: 'Logout',
 }
 
-import home from '@Assets/icons/Dashboard.svg'
-import candidates from '@Assets/icons/Contacts.svg'
-import actions from '@Assets/icons/hammer.svg'
-import analytics from '@Assets/icons/Analytics.svg'
-import logs from '@Assets/icons/logs.svg'
-import account from '@Assets/icons/Account.svg'
-import screenings from '@Assets/icons/Screening.svg'
-
 export const navItems = [
   { id: 1, heading: 'Home', src: home },
   { id: 2, heading: 'Candidates', src: candidates },
-  { id: 3, heading: 'Adverse Actions', src: actions },
+  { id: 3, heading: 'Adverse Actions', src: HammerIcon },
   { id: 4, heading: 'Logs', src: logs },
   { id: 5, heading: 'Analytics', src: analytics },
   { id: 6, heading: 'Account', src: account },
@@ -199,3 +201,39 @@ export const EXIST_CANDIDATES = 'Email already Exist Kindly Login'
 export const API_URL = 'http://localhost:3001'
 export const ADVERSE_ACTIONS = 'Adverse Actions'
 export const OTP_MESSAGE = 'OTP has been sent to your email!'
+
+export const REPORT_INFORMATION: CardProps[] = [
+  {
+    heading: 'Status',
+    subheading: 'Clear',
+    src: StatusIcon,
+  },
+  {
+    heading: 'Adjudication',
+    subheading: '-',
+    src: HammerIcon,
+  },
+  {
+    heading: 'Package',
+    subheading: 'Employee pro',
+    src: PackageIcon,
+  },
+  {
+    heading: 'Created At ',
+    subheading: 'Dec 1, 2016 12:00:00 PM',
+    src: calendar,
+  },
+  {
+    heading: 'Completed Date',
+    subheading: 'Dec 4, 2016 12:00:00 PM',
+    src: calendar,
+  },
+  {
+    heading: 'Turn Around Time ',
+    subheading: '1 Day , 14 hours',
+    src: ClockIcon,
+  },
+]
+export const REPORT_INFORMATION_TEXT = 'Report Information'
+export const PRE_ADERVE_ACTION = 'Pre-Adverse Action'
+export const ENGAGE = 'Engage'

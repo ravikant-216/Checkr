@@ -10,8 +10,10 @@ import {
   FILTER,
   PRE_ADVANCE_ACTION_NOTICE_SENT,
 } from '@/strings/constant'
+import * as Router from 'react-router-dom'
 
 jest.mock('@/hooks/usePagination')
+jest.mock('react-router-dom')
 
 const Render = () =>
   render(
@@ -103,7 +105,9 @@ describe('Candidate Page Testing', () => {
       data: CANDIDATES,
       fetchParticularPage,
     })
+    jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
     Render()
     fireEvent.click(screen.getByText(CANDIDATES[0].name))
+    expect(Router.useNavigate).toHaveBeenCalled()
   })
 })

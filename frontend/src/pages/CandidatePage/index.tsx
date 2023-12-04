@@ -12,11 +12,14 @@ import { CandidateDetail } from '@/utils/types'
 import { Stack } from '@mui/material'
 import { useMemo, useState } from 'react'
 import { ColumnDefination } from './constant'
+import { useNavigate } from 'react-router-dom'
 
 const CandidatePage = () => {
   const { data, fetchParticularPage, page } = usePagination<CandidateDetail>(
     api_routes.CANDIDATE
   )
+
+  const navigate = useNavigate()
 
   const [search, setSearch] = useState('')
   const [statusItems, setStatusItems] = useState<string[]>([])
@@ -74,6 +77,7 @@ const CandidatePage = () => {
 
   const handleRowClick = (row: CandidateDetail) => {
     //Will be redirect to candidate detail page
+    navigate(`/candidate/${row.id}`)
   }
 
   const handleExport = (_startDate: string, _endDate: string) => {

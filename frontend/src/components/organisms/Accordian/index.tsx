@@ -14,7 +14,7 @@ export interface CustomizedAccordionsProps {
   heading: string
   children: React.ReactNode
   expanded?: boolean
-  setExpanded?: React.Dispatch<React.SetStateAction<boolean>>
+  setExpanded?: (isExpanded: boolean) => void
 }
 
 const Accordion = styled((props: AccordionProps) => (

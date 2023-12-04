@@ -75,7 +75,7 @@
     {
       "id": "f4aed27a-4322-46fd-aae4-db4620df2aa3",
       "name": "Christy",
-      "adjudication": "ADVERSE ACTION",
+      "adjudication": "ENGAGE",
       "status": {
         "id": "39f2a67b-c969-4ff0-836b-c173beb2ccae",
         "status": "CONSIDER"
@@ -207,7 +207,7 @@
     {
       "id": "ae27d7c1-ab57-47c4-b7ec-18e3fad5b1d7",
       "name": "Marcellus",
-      "adjudication": "-",
+      "adjudication": "ENGAGE",
       "status": {
         "id": "39f2a67b-c969-4ff0-836b-c173beb2ccae",
         "status": "CONSIDER"
@@ -229,7 +229,7 @@
     {
       "id": "ca8d379b-4f1a-43a4-9fdf-0b1079b71b15",
       "name": "Rozella",
-      "adjudication": "-",
+      "adjudication": "ENGAGE",
       "status": {
         "id": "39f2a67b-c969-4ff0-836b-c173beb2ccae",
         "status": "CONSIDER"
@@ -757,7 +757,7 @@
     {
       "id": "3931e49b-8951-48d9-8b54-6d2f181302b1",
       "name": "Armand",
-      "adjudication": "ADVERSE ACTION",
+      "adjudication": "ENGAGE",
       "status": {
         "id": "39f2a67b-c969-4ff0-836b-c173beb2ccae",
         "status": "CONSIDER"
