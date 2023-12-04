@@ -6,9 +6,14 @@ import { PRE_ADVANCE_ACTION_NOTICE_SENT } from '@/strings/constant'
 
 interface StatusModalProps extends DialogProps {
   open: boolean
+  message?: string
 }
 
-const StatusModal = ({ open, ...props }: StatusModalProps) => {
+const StatusModal = ({
+  open,
+  message = PRE_ADVANCE_ACTION_NOTICE_SENT,
+  ...props
+}: StatusModalProps) => {
   return (
     <Dialog open={open} {...props}>
       <Stack
@@ -21,7 +26,7 @@ const StatusModal = ({ open, ...props }: StatusModalProps) => {
       >
         <Image src={Gif} alt="gif" width={200} height={200} />
         <Typography textAlign="center" variant="h2">
-          {PRE_ADVANCE_ACTION_NOTICE_SENT}
+          {message}
         </Typography>
       </Stack>
     </Dialog>

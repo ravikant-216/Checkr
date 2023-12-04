@@ -61,6 +61,8 @@ const ForgotPassword = ({
     setValue(e.target.value)
     if (!EMAIL_REGEX.test(e.target.value)) {
       setEmailError(true)
+    } else {
+      setEmailError(false)
     }
   }
 

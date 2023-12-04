@@ -9,6 +9,8 @@ import {
 import { useCallback, useEffect } from 'react'
 import SignUpPage from './pages/SignUpPage'
 import { Icon } from './components/atoms/Icon'
+import ForgotPasswordPage from './pages/ForgotPasswordPage'
+import OtpPage from './pages/OtpPage'
 const UnAuthenticateRoute = () => {
   const { isAuthenticated } = useAuth0()
   if (!isAuthenticated) {
@@ -49,6 +51,14 @@ const router = createBrowserRouter([
       {
         path: 'sign-up',
         element: <SignUpPage />,
+      },
+      {
+        path: 'forgot-password',
+        element: <ForgotPasswordPage />,
+      },
+      {
+        path: 'otp-verify',
+        element: <OtpPage />,
       },
     ],
   },
