@@ -30,6 +30,7 @@ const Wrapper = styled(Box)(({ width, height }: PaginationCardProps) => ({
   background: theme.palette.structural.STRUCTURAL_WHITE,
   borderTop: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
   padding: '10px 12px',
+  boxSizing: 'border-box',
 }))
 
 const LeftBox = styled(Box)({

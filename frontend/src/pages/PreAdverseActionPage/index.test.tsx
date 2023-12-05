@@ -1,14 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { PreAdverseActionPage } from '.'
-import { MemoryRouter } from 'react-router-dom'
+import * as Router from 'react-router-dom'
+
+jest.mock('react-router-dom')
 
 describe('Previewnotice page rendering', () => {
+  beforeEach(() => {
+    jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
+  })
+
+  it('if location state null then redirect to home page', () => {
+    const location = jest.spyOn(Router, 'useLocation')
+    ;(location as jest.Mock).mockReturnValue({ state: {} })
+    render(<PreAdverseActionPage />)
+    expect(Router.useNavigate).toHaveBeenCalled()
+  })
+
   it('shoud render Preview notice page', async () => {
-    render(
-      <MemoryRouter>
-        <PreAdverseActionPage />
-      </MemoryRouter>
-    )
+    render(<PreAdverseActionPage />)
     const checkbox = screen.getAllByRole('checkbox')
     fireEvent.click(checkbox[0])
     fireEvent.click(checkbox[1])
@@ -20,11 +29,7 @@ describe('Previewnotice page rendering', () => {
     expect(screen.getByText('RECRUIT')).toBeInTheDocument()
   })
   it('when clicked on close icon ', () => {
-    render(
-      <MemoryRouter>
-        <PreAdverseActionPage />
-      </MemoryRouter>
-    )
+    render(<PreAdverseActionPage />)
     const checkbox = screen.getAllByRole('checkbox')
     fireEvent.click(checkbox[0])
     fireEvent.click(checkbox[1])
@@ -34,20 +39,12 @@ describe('Previewnotice page rendering', () => {
     fireEvent.click(closeicon)
   })
   it('when clicked on back icon', () => {
-    render(
-      <MemoryRouter>
-        <PreAdverseActionPage />
-      </MemoryRouter>
-    )
+    render(<PreAdverseActionPage />)
     const backIcon = screen.getByAltText('back')
     fireEvent.click(backIcon)
   })
   it('when clicked on backdrop of status modal', async () => {
-    render(
-      <MemoryRouter>
-        <PreAdverseActionPage />
-      </MemoryRouter>
-    )
+    render(<PreAdverseActionPage />)
     const checkbox = screen.getAllByRole('checkbox')
     fireEvent.click(checkbox[0])
     fireEvent.click(checkbox[1])

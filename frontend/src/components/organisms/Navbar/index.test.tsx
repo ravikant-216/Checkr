@@ -1,7 +1,14 @@
 import { render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { Navbar, NavbarProps } from './index'
+import * as Router from 'react-router-dom'
+
+jest.mock('react-router-dom')
+
 describe('Navbar Component', () => {
+  beforeEach(() => {
+    jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
+  })
   const defaultProps: NavbarProps = {
     userName: 'John Doe',
     userInfo: 'Software Engineer',
@@ -17,6 +24,8 @@ describe('Navbar Component', () => {
   it('handles navigation item click', () => {
     const { getByText } = render(<Navbar {...defaultProps} />)
     fireEvent.click(getByText('Adverse Actions'))
+    fireEvent.click(getByText('Candidates'))
+    expect(Router.useNavigate).toHaveBeenCalled()
   })
   it('handles logout click', () => {
     const { getByAltText } = render(<Navbar {...defaultProps} />)

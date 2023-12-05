@@ -59,7 +59,9 @@ const CandidateDetailPage = () => {
   }
 
   const preAdverseOnClick = () => {
-    navigate('/pre-adverse-action')
+    navigate('/pre-adverse-action', {
+      state: candidate,
+    })
   }
 
   const engageOnClick = async () => {

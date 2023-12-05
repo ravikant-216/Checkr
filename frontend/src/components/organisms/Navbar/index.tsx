@@ -8,6 +8,7 @@ import logout from '@Assets/icons/logout.svg'
 import theme from '@/themes'
 import { RECRUIT, navItems } from '@/strings/constant'
 import { NavbarLabel } from '@/utils/types'
+import { useNavigate } from 'react-router-dom'
 
 export interface NavbarProps {
   userName?: string
@@ -69,8 +70,14 @@ export const Navbar: React.FC<NavbarProps> = ({
   label,
 }) => {
   const [navItem, setNavItem] = useState<string>(label)
+  const navigate = useNavigate()
   const handleNavItemClick = (heading: string) => {
     setNavItem(heading)
+    if (heading === 'Candidates') {
+      navigate('/dashboard')
+    } else {
+      navigate('/adverse-action')
+    }
   }
   return (
     <Wrapper>

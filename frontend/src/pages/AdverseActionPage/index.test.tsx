@@ -1,15 +1,17 @@
-import { render, screen, waitFor } from '@testing-library/react'
+import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { AdverseActionPage } from '.'
 import * as Api from '@/api/api'
 import { ADVERSE_ACTIONS } from '@/strings/constant'
 import { ThemeProvider } from '@mui/material'
 import theme from '@/themes'
 import { act } from 'react-dom/test-utils'
+import * as Router from 'react-router-dom'
 
 jest.mock('@/api/api')
-
+jest.mock('react-router-dom')
 describe('AdverseActionPage', () => {
   beforeEach(() => {
+    jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
     jest.spyOn(Api, 'getAllAdverseAction').mockReturnValue(
       Promise.resolve([
         {
@@ -53,6 +55,8 @@ describe('AdverseActionPage', () => {
     })
     await waitFor(() => {
       screen.getAllByText(ADVERSE_ACTIONS)
+      fireEvent.click(screen.getAllByTestId('icon')[0])
+      expect(Router.useNavigate).toHaveBeenCalled()
     })
   })
 })

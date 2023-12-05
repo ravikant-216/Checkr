@@ -2,26 +2,20 @@ import StatusModal from '@/components/molecules/StatusModal'
 import PreAdverseCard from '@/components/organisms/PreAdverseCard'
 import { PreviewNoticeModal } from '@/components/organisms/PreviewNoticeModal'
 import HomePageTeamplates from '@/components/templates/HomePageTemplates'
+import { CandidateDetail } from '@/utils/types'
 import { Box, styled } from '@mui/material'
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 
-export interface PreAdverseActionProps {
-  email?: string
-  name?: string
-}
 const StyledBox = styled(Box)({
-  padding: '20px 15px 0 15px',
   width: '100%',
 })
 
-export const PreAdverseActionPage = ({
-  email,
-  name,
-}: PreAdverseActionProps) => {
+export const PreAdverseActionPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false)
   const navigate = useNavigate()
+  const { state } = useLocation() as { state?: CandidateDetail }
   const handlePreviewClick = () => {
     setIsModalOpen(true)
   }
@@ -38,24 +32,30 @@ export const PreAdverseActionPage = ({
     setIsStatusModalOpen(true)
     setTimeout(() => {
       setIsStatusModalOpen(false)
-      navigate('') // Linking page
+      navigate('dashboard') // Linking page
     }, 3000)
   }
+
+  useEffect(() => {
+    if (!state) {
+      navigate('/')
+    }
+  }, [state, navigate])
   return (
     <HomePageTeamplates label={'Candidates'}>
       <StyledBox>
         <PreAdverseCard
           onBackClick={() => {
-            navigate('')
+            navigate(-1)
           }}
-          onPreviewClick={() => handlePreviewClick()}
+          onPreviewClick={handlePreviewClick}
         />
         <PreviewNoticeModal
           open={isModalOpen}
           handleClose={handleCloseModal}
           handleSubmit={handlePreviewSubmit}
-          email={email}
-          name={name}
+          email={state?.email}
+          name={state?.name}
         />
         <StatusModal
           open={isStatusModalOpen}

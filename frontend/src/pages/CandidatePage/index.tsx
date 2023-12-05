@@ -6,6 +6,8 @@ import ExportCandidateModal from '@/components/organisms/ExportCandidateModal'
 import Table from '@/components/organisms/Table'
 import TableHeader from '@/components/organisms/TableHeader'
 import HomePageTeamplates from '@/components/templates/HomePageTemplates'
+import ExportIcon from '@Assets/icons/Export.svg'
+import AddIcon from '@Assets/icons/AddBox.svg'
 import usePagination from '@/hooks/usePagination'
 import { ADJUDICATION, STATUSES } from '@/strings/constant'
 import { CandidateDetail } from '@/utils/types'
@@ -13,6 +15,7 @@ import { Stack } from '@mui/material'
 import { useMemo, useState } from 'react'
 import { ColumnDefination } from './constant'
 import { useNavigate } from 'react-router-dom'
+import { Icon } from '@/components/atoms/Icon'
 
 const CandidatePage = () => {
   const { data, fetchParticularPage, page } = usePagination<CandidateDetail>(
@@ -91,11 +94,14 @@ const CandidatePage = () => {
       <Stack gap={2}>
         <CandidateInforHeader
           heading="Candidates"
+          firstButtonIcon={<Icon src={ExportIcon} alt="Export Icon" />}
+          secondButtonIcon={<Icon src={AddIcon} alt="Add Icon" />}
           firstButtonName="Export"
           secondButtonName="Manual Order"
           onfirstButtonclick={toggleExportModal}
         />
         <Table
+          height="fit-content"
           tableHeader={
             <TableHeader
               statuses={STATUSES}

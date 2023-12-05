@@ -3,6 +3,7 @@ import Typography from '@/components/atoms/Typography'
 import theme from '@/themes'
 import { formatDate } from '@/utils/function'
 import { CandidateDetail, TableColumn } from '@/utils/types'
+import { Stack } from '@mui/material'
 
 export const ColumnDefination: TableColumn<CandidateDetail>[] = [
   {
@@ -54,6 +55,6 @@ export const ColumnDefination: TableColumn<CandidateDetail>[] = [
   {
     label: '',
     key: 'zipcode',
-    customDefination: () => '',
+    customDefination: () => <Stack width="200px"></Stack>,
   },
 ]

@@ -12,6 +12,8 @@ import CandidateDetailPage from './pages/CandidateDetailPage'
 import CandidatePage from './pages/CandidatePage'
 import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import OtpPage from './pages/OtpPage'
+import { PreAdverseActionPage } from './pages/PreAdverseActionPage'
+import { AdverseActionPage } from './pages/AdverseActionPage'
 const UnAuthenticateRoute = () => {
   const { isAuthenticated } = useAuth0()
   if (!isAuthenticated) {
@@ -42,6 +44,18 @@ const router = createBrowserRouter([
         path: 'candidate/:id',
         element: <CandidateDetailPage />,
       },
+      {
+        path: 'pre-adverse-action',
+        element: <PreAdverseActionPage />,
+      },
+      {
+        path: 'adverse-action',
+        element: <AdverseActionPage />,
+      },
+      {
+        path: '*',
+        element: <Navigate to="/dashboard" />,
+      },
     ],
   },
 
@@ -64,6 +78,10 @@ const router = createBrowserRouter([
       {
         path: 'otp-verify',
         element: <OtpPage />,
+      },
+      {
+        path: '*',
+        element: <Navigate to="/login" />,
       },
     ],
   },
