@@ -1,0 +1,17 @@
+server:
+  port: ${USER_SERVICE_PORT}
+spring:
+  application:
+    name: user-service
+  autoconfigure:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:${EUREKA_PORT}/eureka/
+  instance:
+    prefer-ip-address: true
