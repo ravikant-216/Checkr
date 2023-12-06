@@ -45,6 +45,6 @@ export const ColumnDefination: TableColumn<AdverseactionDetail>[] = [
     key: 'datedsdfdf' as any,
     label: '',
     align: 'left',
-    customDefination: () => <Stack width="200px"></Stack>,
+    customDefination: () => <Stack width="300px"></Stack>,
   },
 ]

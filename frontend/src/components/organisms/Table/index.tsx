@@ -39,6 +39,14 @@ const StyledTableHead = styled(TableHead)(({ theme }) => ({
   borderBottom: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
 }))
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  color: theme.palette.text.mediumEmphasis,
+  paddingLeft: theme.spacing(4),
+  paddingRight: theme.spacing(4),
+  paddingTop: theme.spacing(3),
+  paddingBottom: theme.spacing(3),
+}))
+
 function Table<T>({
   columns,
   data,
@@ -62,18 +70,24 @@ function Table<T>({
         <StyledTableHead>
           <TableRow>
             {columns.map((column) => (
-              <TableCell
+              <StyledTableCell
                 align={column.align ?? 'left'}
                 key={column.key as string}
               >
                 <Typography>{column.label}</Typography>
-              </TableCell>
+              </StyledTableCell>
             ))}
           </TableRow>
         </StyledTableHead>
         <TableBody>
           {data.map((item) => (
             <TableRow
+              sx={{
+                cursor: 'pointer',
+                '& th:first-child': {
+                  pl: 4,
+                },
+              }}
               key={item[customIdColumn] as string}
               onClick={() => onRowClick?.(item)}
             >

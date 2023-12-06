@@ -9,6 +9,7 @@ import theme from '@/themes'
 import { RECRUIT, navItems } from '@/strings/constant'
 import { NavbarLabel } from '@/utils/types'
 import { useNavigate } from 'react-router-dom'
+import { LogoutModal } from '@/components/molecules/LogoutModal'
 
 export interface NavbarProps {
   userName?: string
@@ -70,6 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   label,
 }) => {
   const [navItem, setNavItem] = useState<string>(label)
+  const [isLogoutModel, setIsLogoutModel] = useState<boolean>(false)
   const navigate = useNavigate()
   const handleNavItemClick = (heading: string) => {
     setNavItem(heading)
@@ -78,6 +80,9 @@ export const Navbar: React.FC<NavbarProps> = ({
     } else {
       navigate('/adverse-action')
     }
+  }
+  const handleLogoutModel = () => {
+    setIsLogoutModel((prev) => !prev)
   }
   return (
     <Wrapper>
@@ -126,9 +131,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           height={'20px'}
           width={'20px'}
           style={{ cursor: 'pointer', marginLeft: '10px' }}
-          onClick={handleLogout}
+          onClick={handleLogoutModel}
         />
       </LogoutSection>
+      <LogoutModal
+        open={isLogoutModel}
+        handleLogout={handleLogout}
+        handleClose={handleLogoutModel}
+      />
     </Wrapper>
   )
 }

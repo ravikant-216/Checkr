@@ -1,7 +1,7 @@
 import Accordions from '@/components/organisms/Accordian'
 import HomePageTeamplates from '@/components/templates/HomePageTemplates'
 import BackIcon from '@Assets/icons/Back.svg'
-import { Stack } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import { useCallback, useEffect, useState } from 'react'
 import Grid from '@mui/material/Grid'
 import Card, { CardProps } from '@/components/molecules/Card'
@@ -104,6 +104,11 @@ const CandidateDetailPage = () => {
           </Stack>
         </Accordions>
         <Table
+          tableHeader={
+            <Stack p={4}>
+              <Typography variant="subtitle1">Court Searches</Typography>
+            </Stack>
+          }
           height="fit-content"
           data={COURT_RECORD}
           columns={courtSearchColumnDefination}

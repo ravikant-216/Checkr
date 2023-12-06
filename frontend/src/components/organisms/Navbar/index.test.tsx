@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { Navbar, NavbarProps } from './index'
 import * as Router from 'react-router-dom'
@@ -30,6 +30,7 @@ describe('Navbar Component', () => {
   it('handles logout click', () => {
     const { getByAltText } = render(<Navbar {...defaultProps} />)
     fireEvent.click(getByAltText('logout icon'))
+    fireEvent.click(screen.getByText('Logout'))
     expect(defaultProps.handleLogout).toHaveBeenCalled()
   })
 })

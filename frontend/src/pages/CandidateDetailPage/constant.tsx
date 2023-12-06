@@ -46,6 +46,6 @@ export const courtSearchColumnDefination: TableColumn<Count_Records>[] = [
     key: 'datedsdfdf' as any,
     label: '',
     align: 'left',
-    customDefination: () => <Stack width="200px"></Stack>,
+    customDefination: () => <Stack width="150px"></Stack>,
   },
 ]

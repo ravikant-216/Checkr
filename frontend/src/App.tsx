@@ -16,10 +16,10 @@ import { PreAdverseActionPage } from './pages/PreAdverseActionPage'
 import { AdverseActionPage } from './pages/AdverseActionPage'
 const UnAuthenticateRoute = () => {
   const { isAuthenticated } = useAuth0()
-  if (!isAuthenticated) {
-    return <Outlet />
+  if (isAuthenticated || localStorage.getItem('user') !== null) {
+    return <Navigate to="/dashboard" />
   }
-  return <Navigate to="/dashboard" />
+  return <Outlet />
 }
 
 const AuthenticateRoute = () => {
