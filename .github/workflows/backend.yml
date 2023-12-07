@@ -48,7 +48,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.USER_SERVICE_SONAR_TOKEN }}
-        run: mvn -B -DskipTests=true  verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-be-bc123-user-service -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-user-service
+        run: mvn -B -DskipTests=true  verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-checkr-user-service -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-user-service
   api-gateway:
     if: (startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false) || (github.event_name == 'push')
     name: api-gateway
@@ -86,7 +86,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.API_GATEWAY_SONAR_TOKEN }}
-        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-be-bc123-transaction-service -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-api-gateway
+        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-checkr-api-gateway -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-api-gateway
   adverse-action-service:
     if: (startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false) || (github.event_name == 'push')
     name: adverse-action_service
@@ -124,7 +124,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.ADVERSE_ACTION_SERVICE_SONAR_TOKEN }}
-        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-be-bc123-portfolio-service -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-adverse-action
+        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-checkr-adverse-action -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-adverse-action
   candidate-service:
     if: (startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false) || (github.event_name == 'push')
     name: candidate-service
@@ -162,7 +162,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.CANDIDATE_SERVICE_SONAR_TOKEN }}
-        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-be-bc123-portfolio-service -Dsonar.projectKey=zemoso-int_bootcamp-140-candidate-service
+        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-candidate-service -Dsonar.projectKey=zemoso-int_bootcamp-140-candidate-service
 
   court-search-service:
     if: (startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false) || (github.event_name == 'push')
@@ -201,4 +201,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.COURT_SEARCH_SONAR_TOKEN }}
-        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-be-bc123-portfolio-service -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-court-searches
+        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-checkr-court-searches -Dsonar.projectKey=zemoso-int_bootcamp-140-checkr-court-searches
