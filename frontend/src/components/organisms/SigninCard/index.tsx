@@ -13,7 +13,6 @@ import {
   EMAIL_PLACEHOLDR,
   FORGT_PASSWORD,
   INVALID_EMAIL_FORMAT,
-  INVALID_PASSWORD,
   OR,
   PASSWORD_LABEL,
   PASSWORD_PLACEHOLDER,
@@ -118,8 +117,6 @@ export const SigninCard = ({
             value={email}
           />
           <InputFieldWithTypography
-            error={!isValidPassword}
-            helperText={!isValidPassword ? INVALID_PASSWORD : ''}
             type={'password'}
             onChange={handlePasswordChange}
             label={PASSWORD_LABEL}
