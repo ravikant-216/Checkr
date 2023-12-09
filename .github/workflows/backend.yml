@@ -162,7 +162,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.CANDIDATE_SERVICE_SONAR_TOKEN }}
-        run: mvn -B verify -DskipTests=true  org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-candidate-service -Dsonar.projectKey=zemoso-int_bootcamp-140-candidate-service
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectName=bootcamp-140-candidate-service -Dsonar.projectKey=zemoso-int_bootcamp-140-candidate-service
 
   court-search-service:
     if: (startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false) || (github.event_name == 'push')
