@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
     @Autowired
     private UserService userService;
+
     private final JwtService jwtService;
 
     public UserController(JwtService jwtService,UserService userService) {
@@ -26,7 +28,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    private ResponseEntity<UserResponse> loginUser(UserDTO userDto){
+    private ResponseEntity<UserResponse> loginUser(@RequestBody UserDTO userDto){
         String token = jwtService.generateToken(userDto.getEmail(), userDto.getPassword());
         UserDTO loginUser=userService.getUser(userDto);
         UserResponse userResponse= new UserResponse(loginUser.getId(),"login successfully",token);
@@ -35,8 +37,8 @@ public class UserController {
     }
 
     @PostMapping("/signup")
-    private  ResponseEntity<UserResponse> signUpUser(UserDTO userDto){
-        UserDTO savedUserDto=userService.postUser(userDto);
+    private  ResponseEntity<UserResponse> signUpUser(@RequestBody  UserDTO userDto){
+        UserDTO savedUserDto=userService.createUser(userDto);
         String token = jwtService.generateToken(userDto.getEmail(), userDto.getPassword());
         UserResponse userResponse= new UserResponse(savedUserDto.getId(),"login successfully",token);
         return  ResponseEntity.status(HttpStatus.OK)

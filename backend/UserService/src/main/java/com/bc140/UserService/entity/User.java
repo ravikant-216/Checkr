@@ -1,10 +1,9 @@
 package com.bc140.UserService.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import org.hibernate.annotations.UuidGenerator;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import java.util.UUID;
 
@@ -14,6 +13,8 @@ import java.util.UUID;
 @Table(name = "user")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @UuidGenerator
     private UUID id;
     @Column
     private  String name;
@@ -21,4 +22,8 @@ public class User {
     private String email;
     @Column
     private  String password;
+    public boolean isPasswordValid(String password) {
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        return passwordEncoder.matches(password, this.password);
+    }
 }

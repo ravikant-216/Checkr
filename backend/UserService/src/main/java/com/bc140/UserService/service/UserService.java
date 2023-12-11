@@ -6,5 +6,5 @@ import com.bc140.UserService.dto.UserResponse;
 public interface UserService {
     UserDTO getUser(UserDTO userDTO);
 
-    UserDTO postUser(UserDTO userDTO);
+    UserDTO createUser(UserDTO userDTO);
 }

@@ -1,14 +1,12 @@
 SECRET_ID: fafc32a5fbfbbc900cf423a70724c324302c1eccbf5f998ef4485895e43c44d5
+USER_SERVICE_PORT: 9005
 
 server:
   port: ${USER_SERVICE_PORT}
 spring:
   application:
     name: user-service
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-  datasource:
+    datasource:
     url: jdbc:mysql://localhost:3306/checkr_bc_140_user
     username: ${USER}
     password: ${PASSWORD}

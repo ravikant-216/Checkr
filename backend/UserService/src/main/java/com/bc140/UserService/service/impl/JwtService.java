@@ -1,6 +1,5 @@
 package com.bc140.UserService.service.impl;
 
-import com.bc140.UserService.dto.UserDTO;
 import com.bc140.UserService.entity.User;
 import com.bc140.UserService.exception.NotFoundException;
 import com.bc140.UserService.repository.UserRepository;
@@ -8,7 +7,6 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import lombok.Value;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,9 +18,9 @@ import java.util.Optional;
 
 @Component
 public class JwtService {
-    @Value("${SECRET_ID}")
-    private String SECRET;
 
+    //    @Value("${SECRET_ID}")
+    private final String SECRET = "jk";
     @Autowired
     private UserRepository userRepository;
 
@@ -31,7 +29,7 @@ public class JwtService {
     }
 
     public String generateToken(String email, String password) {
-        Optional<UserDTO> user = userRepository.findByEmail(email);
+        Optional<User> user = userRepository.findByEmail(email);
         if (user.isEmpty()) {
             throw new NotFoundException("Unable to generate token");
         } else {
