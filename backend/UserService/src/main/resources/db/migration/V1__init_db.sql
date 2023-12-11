@@ -1,6 +1,7 @@
-CREATE TABLE user (
-    id binary(16) PRIMARY KEY,
-    name VARCHAR(255),
-    email VARCHAR(255),
-    password VARCHAR(255)
+CREATE TABLE  IF NOT EXISTS `user` (
+  `id` binary(16) NOT NULL,
+  `email` varchar(255) NOT NULL UNIQUE,
+  `name` varchar(255),
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
 );

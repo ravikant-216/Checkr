@@ -5,7 +5,6 @@ import com.bc140.UserService.entity.User;
 import com.bc140.UserService.exception.NotFoundException;
 import com.bc140.UserService.exception.UserNotFound;
 import com.bc140.UserService.repository.UserRepository;
-import com.bc140.UserService.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -19,10 +18,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.when;
+import static org.mockito.ArgumentMatchers.*;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {

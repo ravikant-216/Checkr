@@ -1,7 +1,6 @@
 package com.bc140.UserService.service.impl;
 
 import com.bc140.UserService.dto.UserDTO;
-import com.bc140.UserService.dto.UserResponse;
 import com.bc140.UserService.entity.User;
 import com.bc140.UserService.exception.NotFoundException;
 import com.bc140.UserService.exception.UserNotFound;
@@ -27,30 +26,30 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO getUser(UserDTO userDTO) {
-        Optional<User> userByEmail= userRepository.findByEmail(userDTO.getEmail());
-        if(!userByEmail.isPresent()){
-            throw  new UserNotFound("user with email: "+userDTO.getEmail()+" is not found");
+        Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
+        if (!userByEmail.isPresent()) {
+            throw new UserNotFound("user with email: " + userDTO.getEmail() + " is not found");
         }
-        User user= userByEmail.get();
+        User user = userByEmail.get();
         System.out.println(user);
-        if(!user.isPasswordValid(user.getPassword())) {
+        if (!user.isPasswordValid(user.getPassword())) {
             System.out.println("ispassword valifd");
             throw new NotFoundException("Invalid user and password");
         }
-        return   modelMapper.map(userByEmail.get(),UserDTO.class);
+        return modelMapper.map(userByEmail.get(), UserDTO.class);
     }
 
     @Override
     public UserDTO createUser(UserDTO userDTO) {
-        Optional<User> userByEmail= userRepository.findByEmail(userDTO.getEmail());
+        Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
 
         System.out.println(userByEmail.isPresent());
-        if(userByEmail.isPresent() ){
-            throw  new UserNotFound("user with email: "+userDTO.getEmail()+" is already exists");
+        if (userByEmail.isPresent()) {
+            throw new UserNotFound("user with email: " + userDTO.getEmail() + " is already exists");
         }
         String bcryptEncodedPassword = passwordEncoder.encode(userDTO.getPassword());
         userDTO.setPassword(bcryptEncodedPassword);
-        User user= modelMapper.map(userDTO,User.class);
-        return modelMapper.map(userRepository.save(user),UserDTO.class);
+        User user = modelMapper.map(userDTO, User.class);
+        return modelMapper.map(userRepository.save(user), UserDTO.class);
     }
 }
