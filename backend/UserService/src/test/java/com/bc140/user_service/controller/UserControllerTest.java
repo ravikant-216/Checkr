@@ -61,7 +61,23 @@ class UserControllerTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(userDTO)))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("login successfully"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("signup successfully"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(userDTO.getId()));
+    }
+
+    @Test
+    void testResetPassword() throws Exception {
+        UserDTO userDTO = new UserDTO();
+        userDTO.setEmail("test@example.com");
+
+        Mockito.when(userService.getUserByEmail(Mockito.any(UserDTO.class))).thenReturn(userDTO);
+        Mockito.when(jwtService.generateToken(Mockito.anyString(), Mockito.anyString())).thenReturn("TOKEN");
+
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/v1/user/reset-password")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(objectMapper.writeValueAsString(userDTO)))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.message").value("reset password successfully"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").value(userDTO.getId()));
     }
 }

@@ -114,4 +114,27 @@ class UserServiceImplTest {
         assertEquals("encodedPassword", createdUserDTO.getPassword());
     }
 
+    @Test
+    void testGetUserByEmail_UserNotFound() {
+        UserDTO inputUserDTO = new UserDTO();
+        inputUserDTO.setEmail("test@example.com");
+
+        Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(new User()));
+
+
+        assertDoesNotThrow(() -> userService.getUserByEmail(inputUserDTO),
+                "Unexpected exception when user with the given email does not exist");
+    }
+
+    @Test
+    void testGetUserByEmail_UserFound() {
+        UserDTO inputUserDTO = new UserDTO();
+        inputUserDTO.setEmail("test@example.com");
+
+        Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
+        assertThrows(UserNotFound.class, () -> userService.getUserByEmail(inputUserDTO),
+                "Expected UserNotFound exception when user with the given email exists");
+
+    }
+
 }

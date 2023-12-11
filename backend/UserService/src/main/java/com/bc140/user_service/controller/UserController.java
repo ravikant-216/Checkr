@@ -8,10 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/user")
@@ -28,6 +25,7 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<UserResponse> loginUser(@RequestBody UserDTO userDto) {
+        System.out.println("enter");
         log.info("Received login request for user: {}", userDto.getEmail());
 
         String token = jwtService.generateToken(userDto.getEmail(), userDto.getPassword());
@@ -55,4 +53,20 @@ public class UserController {
         return ResponseEntity.status(HttpStatus.OK)
                 .body(userResponse);
     }
+
+    @GetMapping("/reset-password")
+    public ResponseEntity<UserResponse> resetPassword(@RequestBody UserDTO userDto) {
+        log.info("Received reset password request for user: {}", userDto.getEmail());
+
+        UserDTO savedUserDto = userService.getUserByEmail(userDto);
+
+        String token = jwtService.generateToken(userDto.getEmail(), savedUserDto.getPassword());
+
+        UserResponse userResponse = new UserResponse(savedUserDto.getId(), "reset password successfully", token);
+        log.info("Sending reset password response for user: {}", savedUserDto.getEmail());
+
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(userResponse);
+    }
+
 }
