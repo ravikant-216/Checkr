@@ -1,4 +1,4 @@
-package com.bc140.user_service.confIg;
+package com.bc140.user_service.config;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
