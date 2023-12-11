@@ -98,17 +98,13 @@ class UserServiceImplTest {
 
         Mockito.when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
 
-        // Mocking the behavior of the modelMapper to map from UserDTO to User
-        Mockito.when(modelMapper.map(any(UserDTO.class), eq(User.class))).thenReturn(inputUser);
+         Mockito.when(modelMapper.map(any(UserDTO.class), eq(User.class))).thenReturn(inputUser);
         Mockito.when(modelMapper.map(any(User.class), eq(UserDTO.class))).thenReturn(inputUserDTO);
 
-        // Mocking the behavior of userRepository.save to return the user passed to it
         Mockito.when(userRepository.save(any(User.class))).thenReturn(inputUser);
 
-        // Invoking the createUser method
         UserDTO createdUserDTO = userService.createUser(inputUserDTO);
 
-        // Asserting that the returned UserDTO has the expected properties
         assertNotNull(createdUserDTO);
         assertEquals(inputUserDTO.getEmail(), createdUserDTO.getEmail());
         assertEquals("encodedPassword", createdUserDTO.getPassword());

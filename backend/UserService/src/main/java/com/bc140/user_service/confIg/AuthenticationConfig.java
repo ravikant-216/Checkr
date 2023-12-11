@@ -1,4 +1,4 @@
-package com.bc140.user_service.confg;
+package com.bc140.user_service.confIg;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

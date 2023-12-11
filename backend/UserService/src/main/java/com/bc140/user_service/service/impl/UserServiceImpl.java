@@ -15,20 +15,21 @@ import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
+    private final UserRepository userRepository;
+    private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
+    private static final String EMAIL_ERROR="user with email: ";
     @Autowired
-    private UserRepository userRepository;
-
-    @Autowired
-    private ModelMapper modelMapper;
-    @Autowired
-    private PasswordEncoder passwordEncoder;
-
-
+    public UserServiceImpl(UserRepository userRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder) {
+        this.userRepository = userRepository;
+        this.modelMapper = modelMapper;
+        this.passwordEncoder = passwordEncoder;
+    }
     @Override
     public UserDTO getUser(UserDTO userDTO) {
         Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
         if (!userByEmail.isPresent()) {
-            throw new UserNotFound("user with email: " + userDTO.getEmail() + " is not found");
+            throw new UserNotFound(EMAIL_ERROR + userDTO.getEmail() + " is not found");
         }
         User user = userByEmail.get();
         if (!user.isPasswordValid(user.getPassword())) {
@@ -41,7 +42,7 @@ public class UserServiceImpl implements UserService {
     public UserDTO createUser(UserDTO userDTO) {
         Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
         if (userByEmail.isPresent()) {
-            throw new UserNotFound("user with email: " + userDTO.getEmail() + " is already exists");
+            throw new UserNotFound(EMAIL_ERROR + userDTO.getEmail() + " is already exists");
         }
         String bcryptEncodedPassword = passwordEncoder.encode(userDTO.getPassword());
         userDTO.setPassword(bcryptEncodedPassword);
@@ -52,7 +53,7 @@ public class UserServiceImpl implements UserService {
     public  UserDTO getUserByEmail(UserDTO userDTO){
         Optional<User> userByEmail = userRepository.findByEmail(userDTO.getEmail());
         if (!userByEmail.isPresent()) {
-            throw new UserNotFound("user with email: " + userDTO.getEmail() + " is already exists");
+            throw new UserNotFound(EMAIL_ERROR + userDTO.getEmail() + " is already exists");
         }
         return  modelMapper.map(userByEmail.get(), UserDTO.class);
     }

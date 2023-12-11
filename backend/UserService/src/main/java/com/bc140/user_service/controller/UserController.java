@@ -25,7 +25,6 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<UserResponse> loginUser(@RequestBody UserDTO userDto) {
-        System.out.println("enter");
         log.info("Received login request for user: {}", userDto.getEmail());
 
         String token = jwtService.generateToken(userDto.getEmail(), userDto.getPassword());

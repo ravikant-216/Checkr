@@ -26,7 +26,7 @@
 			**/entity/**,
 			**/repository/**,
 			**/exception/**,
-			**/configuration/**,
+			**/config/**,
 			**/utils/**,
 			**/config/**,
 			**/JwtService.java
