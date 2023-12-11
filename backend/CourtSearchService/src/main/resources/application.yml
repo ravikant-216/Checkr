@@ -3,9 +3,6 @@ server:
 spring:
   application:
     name: adverse-action-search-service
-  autoconfigure:
-    exclude:
-      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
   datasource:
     url: jdbc:mysql://localhost:3306/checkr_bc_140_court_search
     username: ${USER}

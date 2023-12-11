@@ -1,5 +1,5 @@
 CREATE TABLE court_search (
-    id SERIAL PRIMARY KEY,
+    id binary(16) PRIMARY KEY,
     search VARCHAR(255),
     status_id binary(16) REFERENCES checkr_bc_140_candidate.status(id),
     date datetime,
