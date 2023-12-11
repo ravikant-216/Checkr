@@ -1,4 +1,4 @@
-package com.bc140.candidateservice.dao;
+package com.bc140.candidateservice.dto;
 
 import com.bc140.candidateservice.enums.Adjudication;
 

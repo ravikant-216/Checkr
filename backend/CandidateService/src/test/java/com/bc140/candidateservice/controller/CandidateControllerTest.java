@@ -20,9 +20,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import com.bc140.candidateservice.dao.NewCandidateRequest;
-import com.bc140.candidateservice.dao.ReportRequestBody;
-import com.bc140.candidateservice.dao.UpdateCandidateRequest;
+import com.bc140.candidateservice.dto.NewCandidateRequest;
+import com.bc140.candidateservice.dto.ReportRequestBody;
+import com.bc140.candidateservice.dto.UpdateCandidateRequest;
 import com.bc140.candidateservice.entity.Candidate;
 import com.bc140.candidateservice.entity.Status;
 import com.bc140.candidateservice.enums.Adjudication;

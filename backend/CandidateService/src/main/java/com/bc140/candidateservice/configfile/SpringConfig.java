@@ -1,4 +1,4 @@
-package com.bc140.candidateservice.config;
+package com.bc140.candidateservice.configfile;
 
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;

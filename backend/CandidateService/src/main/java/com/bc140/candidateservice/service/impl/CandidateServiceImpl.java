@@ -9,8 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.bc140.candidateservice.dao.NewCandidateRequest;
-import com.bc140.candidateservice.dao.UpdateCandidateRequest;
+import com.bc140.candidateservice.dto.NewCandidateRequest;
+import com.bc140.candidateservice.dto.UpdateCandidateRequest;
 import com.bc140.candidateservice.entity.Candidate;
 import com.bc140.candidateservice.entity.Status;
 import com.bc140.candidateservice.exception.EntityNotFound;

@@ -1,4 +1,4 @@
-package com.bc140.candidateservice.dao;
+package com.bc140.candidateservice.dto;
 
 import java.time.LocalDateTime;
 

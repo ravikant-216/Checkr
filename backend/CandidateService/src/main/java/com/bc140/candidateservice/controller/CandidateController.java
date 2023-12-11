@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bc140.candidateservice.dao.NewCandidateRequest;
-import com.bc140.candidateservice.dao.ReportRequestBody;
-import com.bc140.candidateservice.dao.UpdateCandidateRequest;
+import com.bc140.candidateservice.dto.NewCandidateRequest;
+import com.bc140.candidateservice.dto.ReportRequestBody;
+import com.bc140.candidateservice.dto.UpdateCandidateRequest;
 import com.bc140.candidateservice.entity.Candidate;
 import com.bc140.candidateservice.service.CandidateService;
 import com.bc140.candidateservice.utils.Constant;
