@@ -1,13 +1,9 @@
-package com.bc140.AdverseActionService;
+package com.bc140.adverse_action_service;
 
-import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class AdverseActionServiceApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
 
 }
