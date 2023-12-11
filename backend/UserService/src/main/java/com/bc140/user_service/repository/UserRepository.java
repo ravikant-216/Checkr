@@ -1,6 +1,6 @@
-package com.bc140.UserService.repository;
+package com.bc140.user_service.repository;
 
-import com.bc140.UserService.entity.User;
+import com.bc140.user_service.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

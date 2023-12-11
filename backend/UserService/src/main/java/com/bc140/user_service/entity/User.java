@@ -1,4 +1,4 @@
-package com.bc140.UserService.entity;
+package com.bc140.user_service.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;

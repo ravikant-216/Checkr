@@ -1,6 +1,6 @@
-package com.bc140.UserService.exception;
+package com.bc140.user_service.exception;
 
-import com.bc140.UserService.dto.ErrorResponse;
+import com.bc140.user_service.dto.ErrorResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

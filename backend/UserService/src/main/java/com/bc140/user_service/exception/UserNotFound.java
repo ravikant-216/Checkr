@@ -1,4 +1,4 @@
-package com.bc140.UserService.exception;
+package com.bc140.user_service.exception;
 
 public class UserNotFound extends RuntimeException {
     public UserNotFound(String message) {

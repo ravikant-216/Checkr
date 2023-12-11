@@ -1,8 +1,8 @@
-package com.bc140.UserService.service.impl;
+package com.bc140.user_service.service.impl;
 
-import com.bc140.UserService.entity.User;
-import com.bc140.UserService.exception.NotFoundException;
-import com.bc140.UserService.repository.UserRepository;
+import com.bc140.user_service.entity.User;
+import com.bc140.user_service.exception.NotFoundException;
+import com.bc140.user_service.repository.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;

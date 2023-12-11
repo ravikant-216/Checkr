@@ -1,8 +1,8 @@
-package com.bc140.UserService.controller;
+package com.bc140.user_service.controller;
 
-import com.bc140.UserService.dto.UserDTO;
-import com.bc140.UserService.service.UserService;
-import com.bc140.UserService.service.impl.JwtService;
+import com.bc140.user_service.dto.UserDTO;
+import com.bc140.user_service.service.UserService;
+import com.bc140.user_service.service.impl.JwtService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
