@@ -7,12 +7,37 @@ spring:
     gateway:
       default-filters:
         - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin
+      discovery:
+        locator:
+          enabled: true
+          lowerCaseServiceId: true
       globalcors:
         corsConfigurations:
           "[/**]":
             allowedOrigins: "*"
             allowedMethods: "*"
             allowedHeaders: "*"
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/user/**
+        - id: adverse-action-service
+          uri: lb://adverse-action-service
+          predicates:
+            - Path=/api/v1/adverse-action/**
+          filters:
+            - AuthenticationFilter
+        - id: court-search-service
+          uri: lb://court-search-service
+          predicates:
+            - Path=/api/v1/court-search/**
+        - id: candidate-service
+          uri: lb://candidate-service
+          predicates:
+            - Path=/api/v1/candidate/**
+          filters:
+           - AuthenticationFilter
 eureka:
   client:
     fetch-registry: true

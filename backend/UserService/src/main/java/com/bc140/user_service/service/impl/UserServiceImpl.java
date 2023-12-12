@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
             throw new UserNotFound(EMAIL_ERROR + userDTO.getEmail() + " is not found");
         }
         User user = userByEmail.get();
-        if (!user.isPasswordValid(user.getPassword())) {
+        if (!user.isPasswordValid(userDTO.getPassword())) {
             throw new NotFoundException("Invalid user and password");
         }
         return modelMapper.map(userByEmail.get(), UserDTO.class);
