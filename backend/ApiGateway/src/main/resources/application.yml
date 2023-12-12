@@ -1,5 +1,3 @@
-secret:
-  id: fafc32a5fbfbbc900cf423a70724c324302c1eccbf5f998ef4485895e43c44d5
 server:
   port: ${API_GATEWAY_PORT}
 spring:
