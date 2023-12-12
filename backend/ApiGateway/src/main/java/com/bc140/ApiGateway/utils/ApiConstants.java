@@ -6,9 +6,10 @@ public class ApiConstants {
     public static final List<String> OPEN_API_ENDPOINTS = List.of(
             "/api/v1/user/reset-password",
             "/api/v1/user/login",
-            "/api/v1/user /signup",
+            "/api/v1/user/signup",
             "/eureka"
     );
 
-
+    private ApiConstants() {
+    }
 }

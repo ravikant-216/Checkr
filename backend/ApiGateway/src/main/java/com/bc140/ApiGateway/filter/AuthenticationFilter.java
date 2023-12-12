@@ -6,8 +6,10 @@ import com.bc140.ApiGateway.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 
+@Configuration
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
     @Autowired
     private RouteValidator validator;
@@ -17,10 +19,12 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
     public AuthenticationFilter() {
         super(Config.class);
+        System.out.println("filter");
     }
 
     @Override
     public GatewayFilter apply(Config config) {
+        System.out.println("enter");
         return ((exchange, chain) -> {
             if (validator.isSecured.test(exchange.getRequest())) {
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {

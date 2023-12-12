@@ -5,7 +5,7 @@ public final class Constant {
   private Constant() {
   }
 
-  public static final String CANDIDATE_ROUTE = "/candidate";
+  public static final String CANDIDATE_ROUTE = "/api/v1/candidate";
 
   public static final String ID = "/{id}";
 
