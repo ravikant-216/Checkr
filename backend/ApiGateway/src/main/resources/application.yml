@@ -28,8 +28,8 @@ spring:
           uri: lb://adverse-action-service
           predicates:
             - Path=/api/v1/adverse-action/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+            - AuthenticationFilter
         - id: court-search-service
           uri: lb://court-search-service
           predicates:

@@ -6,7 +6,6 @@ import com.bc140.ApiGateway.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Component;
 
@@ -25,9 +24,8 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
 
     @Override
     public GatewayFilter apply(Config config) {
-        System.out.println("enter");
         return ((exchange, chain) -> {
-            if (validator.isSecured.test(exchange.getRequest())) {
+            if (RouteValidator.isSecured.test(exchange.getRequest())) {
                 if (!exchange.getRequest().getHeaders().containsKey(HttpHeaders.AUTHORIZATION)) {
                     throw new UnauthorizedAccessException(Constants.HEADER_MISSING_MESSAGE);
                 }
