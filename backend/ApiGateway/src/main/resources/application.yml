@@ -38,8 +38,8 @@ spring:
           uri: lb://candidate-service
           predicates:
             - Path=/api/v1/candidate/**
-#          filters:
-#            - AuthenticationFilter
+          filters:
+           - AuthenticationFilter
 eureka:
   client:
     fetch-registry: true

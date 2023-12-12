@@ -8,8 +8,9 @@ import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpHeaders;
+import org.springframework.stereotype.Component;
 
-@Configuration
+@Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
     @Autowired
     private RouteValidator validator;
@@ -34,10 +35,8 @@ public class AuthenticationFilter extends AbstractGatewayFilterFactory<Authentic
                 if (authHeader != null && authHeader.startsWith(Constants.BEARER)) {
                     authHeader = authHeader.substring(7);
                 }
-                try {
-                    jwtUtil.validateToken(authHeader);
-                } catch (Exception e) {
-                    throw new UnauthorizedAccessException(Constants.HEADER_MISSING_MESSAGE);
+                if (!jwtUtil.validateToken(authHeader)) {
+                    throw new UnauthorizedAccessException(Constants.INVALID_TOKEN);
                 }
             }
             return chain.filter(exchange);

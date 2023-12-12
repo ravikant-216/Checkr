@@ -21,7 +21,7 @@ import java.util.Optional;
 public class JwtService {
 
     @Value("${SECRET_ID}")
-    private String SECRET ;
+    private String SECRET;
     @Autowired
     private UserRepository userRepository;
 

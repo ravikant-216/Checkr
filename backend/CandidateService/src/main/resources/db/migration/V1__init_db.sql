@@ -30,13 +30,13 @@ CREATE TABLE `candidates` (
   CONSTRAINT `FK2nxo6472mikbc8cr77mo87ea` FOREIGN KEY (`status_id`) REFERENCES `status` (`id`)
 ) ;
 
-INSERT INTO  checkr_bc_140_candidate.status(id,status) 
+INSERT INTO  status(id,status) 
 VALUES (UNHEX(REPLACE("a5082aec-2225-4c36-9775-da76b3658270", "-","")),'CLEAR');
 
-INSERT INTO  checkr_bc_140_candidate.status(id,status) 
+INSERT INTO  status(id,status) 
 VALUES (UNHEX(REPLACE("8a6231b4-f807-4c7f-9d42-671bf27d04bc", "-","")),'CONSIDER');
 
-INSERT INTO  checkr_bc_140_candidate.status(id,status) 
+INSERT INTO  status(id,status) 
 VALUES (UNHEX(REPLACE("19513173-ac6a-4b32-831f-be59e81b9bdd", "-","")),'SCHEDULE');
 
 INSERT INTO candidates (id, social_security, adjudication, created_at, dob, drivers_license, location, name, packages, phone_number, report_completion_date, report_created_at, turn_around_time, zipcode, status_id) VALUES(0x00C755C668EE462886E62A92C996B4BC, '6', 'ENGAGE', '2023-12-08 13:55:48', '2023-05-29', '0', 'Cheyenne', 'Judd', 'Premium', '370.803.0942 x636', '2023-02-14 01:01:31', '2023-07-05 20:04:37', 8, '56354', 0x8A6231B4F8074C7F9D42671BF27D04BC);
