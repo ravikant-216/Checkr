@@ -68,9 +68,9 @@ class UserServiceImplTest {
         userEntity.setName("a");
         userEntity.setId(UUID.randomUUID());
 
-        Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.of(userEntity));
+        Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
 
-        assertThrows(NotFoundException.class, () -> userService.getUser(inputUserDTO));
+        assertThrows(UserNotFound.class, () -> userService.getUser(inputUserDTO));
     }
 
     @Test

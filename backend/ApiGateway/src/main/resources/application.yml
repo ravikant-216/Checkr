@@ -1,3 +1,5 @@
+secret:
+  id: fafc32a5fbfbbc900cf423a70724c324302c1eccbf5f998ef4485895e43c44d5
 server:
   port: ${API_GATEWAY_PORT}
 spring:
@@ -13,6 +15,27 @@ spring:
             allowedOrigins: "*"
             allowedMethods: "*"
             allowedHeaders: "*"
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/api/v1/user/**
+        - id: adverse-action-service
+          uri: lb://adverse-action-service
+          predicates:
+            - Path=/api/v1/adverse-action/**
+#          filters:
+#            - AuthenticationFilter
+        - id: court-search-service
+          uri: lb://court-search-service
+          predicates:
+            - Path=/api/v1/court-search/**
+        - id: candidate-service
+          uri: lb://candidate-service
+          predicates:
+            - Path=/api/v1/candidate/**
+#          filters:
+#            - AuthenticationFilter
 eureka:
   client:
     fetch-registry: true

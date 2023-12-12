@@ -27,9 +27,9 @@ public class UserController {
     public ResponseEntity<UserResponse> loginUser(@RequestBody UserDTO userDto) {
         log.info("Received login request for user: {}", userDto.getEmail());
 
-        String token = jwtService.generateToken(userDto.getEmail(), userDto.getPassword());
-
         UserDTO loginUser = userService.getUser(userDto);
+
+        String token = jwtService.generateToken(userDto.getEmail(), loginUser.getPassword());
 
         UserResponse userResponse = new UserResponse(loginUser.getId(), "login successfully", token);
         log.info("Sending login response for user: {}", loginUser.getEmail());
