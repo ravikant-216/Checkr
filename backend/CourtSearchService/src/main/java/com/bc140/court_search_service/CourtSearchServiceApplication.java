@@ -1,4 +1,4 @@
-package com.bc140.CourtSearchService;
+package com.bc140.court_search_service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
