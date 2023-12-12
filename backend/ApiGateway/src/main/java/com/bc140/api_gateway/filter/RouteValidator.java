@@ -1,13 +1,13 @@
-package com.bc140.ApiGateway.filter;
+package com.bc140.api_gateway.filter;
 
-import com.bc140.ApiGateway.utils.ApiConstants;
+import com.bc140.api_gateway.utils.ApiConstants;
 import org.springframework.http.server.reactive.ServerHttpRequest;
 import org.springframework.stereotype.Component;
 
 import java.util.function.Predicate;
 
 @Component
-public class RouteValidator {
+ class RouteValidator {
     public static final Predicate<ServerHttpRequest> isSecured =
             request -> ApiConstants.OPEN_API_ENDPOINTS
                     .stream()

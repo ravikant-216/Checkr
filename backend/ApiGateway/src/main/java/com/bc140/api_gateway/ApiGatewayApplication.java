@@ -1,4 +1,4 @@
-package com.bc140.ApiGateway;
+package com.bc140.api_gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

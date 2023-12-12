@@ -1,8 +1,8 @@
-package com.bc140.ApiGateway.filter;
+package com.bc140.api_gateway.filter;
 
-import com.bc140.ApiGateway.exceptions.UnauthorizedAccessException;
-import com.bc140.ApiGateway.utils.Constants;
-import com.bc140.ApiGateway.utils.JwtUtil;
+import com.bc140.api_gateway.exceptions.UnauthorizedAccessException;
+import com.bc140.api_gateway.utils.Constants;
+import com.bc140.api_gateway.utils.JwtUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -11,15 +11,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class AuthenticationFilter extends AbstractGatewayFilterFactory<AuthenticationFilter.Config> {
-    @Autowired
-    private RouteValidator validator;
+
+    private final RouteValidator validator;
+    private final JwtUtil jwtUtil;
 
     @Autowired
-    private JwtUtil jwtUtil;
-
-    public AuthenticationFilter() {
+    public AuthenticationFilter(RouteValidator validator, JwtUtil jwtUtil) {
         super(Config.class);
-        System.out.println("filter");
+        this.validator = validator;
+        this.jwtUtil = jwtUtil;
     }
 
     @Override

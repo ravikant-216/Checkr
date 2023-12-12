@@ -1,4 +1,4 @@
-package com.bc140.ApiGateway.utils;
+package com.bc140.api_gateway.utils;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
