@@ -1,22 +1,24 @@
 server:
   port: ${COURT_SEARCH_SERVICE_PORT}
+  servlet:
+    context-path: /api
 spring:
   application:
-    name: adverse-action-search-service
+    name: court-search-service
   datasource:
-    url: jdbc:mysql://localhost:3306/checkr_bc_140_court_search
-    username: ${USER}
-    password: ${PASSWORD}
+    url: ${DB_URL}/${COURT_SEARCH_SERVICE_DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     hikari:
       maximum-pool-size: 10
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQLDialect
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
   flyway:
     baseline-on-migrate: true
     locations: classpath:db/migration
-    debug: true
+    enabled: true
 eureka:
   client:
     fetch-registry: true

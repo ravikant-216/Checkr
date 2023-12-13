@@ -4,7 +4,7 @@ spring:
   application:
     name: candidate-service
   datasource:
-    url: ${DB_URL}
+    url: ${DB_URL}/${CANDIDATE_SERVICE_DB_NAME}
     username: ${DB_USERNAME}
     password: ${DB_PASSWORD}
     hikari:

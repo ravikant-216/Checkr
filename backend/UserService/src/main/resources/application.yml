@@ -4,9 +4,9 @@ spring:
   application:
     name: user-service
   datasource:
-    url: jdbc:mysql://localhost:3306/checkr_bc_140_user
-    username: ${USERNAME}
-    password: ${PASSWORD}
+    url: ${DB_URL}/${USER_SERVICE_DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
     hikari:
       maximum-pool-size: 10
   jpa:

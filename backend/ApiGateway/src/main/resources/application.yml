@@ -25,19 +25,19 @@ spring:
         - id: adverse-action-service
           uri: lb://adverse-action-service
           predicates:
-            - Path=/api/v1/adverse-action/**
+            - Path=/api/v1/userActions/**
           filters:
             - AuthenticationFilter
         - id: court-search-service
           uri: lb://court-search-service
           predicates:
-            - Path=/api/v1/court-search/**
+            - Path=/api/v1/courtReports/**
         - id: candidate-service
           uri: lb://candidate-service
           predicates:
             - Path=/api/v1/candidate/**
           filters:
-           - AuthenticationFilter
+            - AuthenticationFilter
 eureka:
   client:
     fetch-registry: true
