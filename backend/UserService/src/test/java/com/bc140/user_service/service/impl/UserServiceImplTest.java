@@ -2,7 +2,6 @@ package com.bc140.user_service.service.impl;
 
 import com.bc140.user_service.dto.UserDTO;
 import com.bc140.user_service.entity.User;
-import com.bc140.user_service.exception.NotFoundException;
 import com.bc140.user_service.exception.UserNotFound;
 import com.bc140.user_service.repository.UserRepository;
 import org.junit.jupiter.api.Test;
@@ -96,9 +95,7 @@ class UserServiceImplTest {
         inputUser.setPassword("password");
         Mockito.when(userRepository.findByEmail(anyString())).thenReturn(Optional.empty());
 
-        Mockito.when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
-
-         Mockito.when(modelMapper.map(any(UserDTO.class), eq(User.class))).thenReturn(inputUser);
+        Mockito.when(modelMapper.map(any(UserDTO.class), eq(User.class))).thenReturn(inputUser);
         Mockito.when(modelMapper.map(any(User.class), eq(UserDTO.class))).thenReturn(inputUserDTO);
 
         Mockito.when(userRepository.save(any(User.class))).thenReturn(inputUser);
@@ -107,7 +104,7 @@ class UserServiceImplTest {
 
         assertNotNull(createdUserDTO);
         assertEquals(inputUserDTO.getEmail(), createdUserDTO.getEmail());
-        assertEquals("encodedPassword", createdUserDTO.getPassword());
+        assertEquals("password", createdUserDTO.getPassword());
     }
 
     @Test

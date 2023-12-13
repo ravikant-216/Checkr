@@ -1,12 +1,12 @@
 server:
-  port: ${USER_SERVICE_PORT}
+  port: 8082
 spring:
   application:
     name: user-service
   datasource:
-    url: ${DB_URL}/${USER_SERVICE_DB_NAME}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: jdbc:mysql://ab645cfe286724762be9dad8846b238c-1243733161.us-east-1.elb.amazonaws.com:3306/checkr_bc_140_user
+    username: dev
+    password: Bootcamp@140
     hikari:
       maximum-pool-size: 10
   jpa:

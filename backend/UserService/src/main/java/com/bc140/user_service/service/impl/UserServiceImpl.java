@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
             throw new NotFoundException("Invalid user and password");
         }
         return modelMapper.map(userByEmail.get(), UserDTO.class);
+
     }
 
     @Override
@@ -44,8 +45,6 @@ public class UserServiceImpl implements UserService {
         if (userByEmail.isPresent()) {
             throw new UserNotFound(EMAIL_ERROR + userDTO.getEmail() + " is already exists");
         }
-        String bcryptEncodedPassword = passwordEncoder.encode(userDTO.getPassword());
-        userDTO.setPassword(bcryptEncodedPassword);
         User user = modelMapper.map(userDTO, User.class);
         return modelMapper.map(userRepository.save(user), UserDTO.class);
     }

@@ -53,7 +53,7 @@ public class UserController {
                 .body(userResponse);
     }
 
-    @GetMapping("/reset-password")
+    @PostMapping("/reset-password")
     public ResponseEntity<UserResponse> resetPassword(@RequestBody UserDTO userDto) {
         log.info("Received reset password request for user: {}", userDto.getEmail());
 
