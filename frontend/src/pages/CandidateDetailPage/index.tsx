@@ -34,7 +34,7 @@ const CardGrid = ({ cardData }: { cardData: CardProps[] }) => {
 }
 
 const CandidateDetailPage = () => {
-  const [accordian1, setAccordian1] = useState(true)
+  const [accordian1, setAccordian1] = useState(false)
   const [accordian2, setAccordian2] = useState(false)
   const [candidate, setCandidate] = useState<CandidateDetail>(CANDIDATES[0])
 

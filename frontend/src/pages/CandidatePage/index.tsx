@@ -9,7 +9,7 @@ import HomePageTeamplates from '@/components/templates/HomePageTemplates'
 import ExportIcon from '@Assets/icons/Export.svg'
 import AddIcon from '@Assets/icons/AddBox.svg'
 import usePagination from '@/hooks/usePagination'
-import { ADJUDICATION, STATUSES } from '@/strings/constant'
+import { ADJUDICATION, DOWNLOAD_LINK_SEND, STATUSES } from '@/strings/constant'
 import { CandidateDetail } from '@/utils/types'
 import { Stack } from '@mui/material'
 import { useMemo, useState } from 'react'
@@ -91,7 +91,7 @@ const CandidatePage = () => {
 
   return (
     <HomePageTeamplates label="Candidates">
-      <Stack gap={2}>
+      <Stack gap={2} width="98%">
         <CandidateInforHeader
           heading="Candidates"
           firstButtonIcon={<Icon src={ExportIcon} alt="Export Icon" />}
@@ -101,7 +101,7 @@ const CandidatePage = () => {
           onfirstButtonclick={toggleExportModal}
         />
         <Table
-          height="fit-content"
+          height="87vh"
           tableHeader={
             <TableHeader
               statuses={STATUSES}
@@ -125,7 +125,11 @@ const CandidatePage = () => {
           onClose={toggleExportModal}
           handleExport={handleExport}
         />
-        <StatusModal open={showStatusModal} onClose={toogleStatusModal} />
+        <StatusModal
+          open={showStatusModal}
+          onClose={toogleStatusModal}
+          message={DOWNLOAD_LINK_SEND}
+        />
       </Stack>
     </HomePageTeamplates>
   )

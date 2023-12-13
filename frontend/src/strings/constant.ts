@@ -237,3 +237,5 @@ export const REPORT_INFORMATION: CardProps[] = [
 export const REPORT_INFORMATION_TEXT = 'Report Information'
 export const PRE_ADERVE_ACTION = 'Pre-Adverse Action'
 export const ENGAGE = 'Engage'
+export const DOWNLOAD_LINK_SEND =
+  'Download link was sucessfully sent to your email'

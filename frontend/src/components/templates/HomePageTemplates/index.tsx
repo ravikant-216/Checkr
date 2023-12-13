@@ -1,6 +1,6 @@
 import { Navbar } from '@/components/organisms/Navbar'
 import { NavbarLabel } from '@/utils/types'
-import { Grid, Stack } from '@mui/material'
+import { Stack, styled } from '@mui/material'
 import avatar from '@Assets/icons/Avatar.svg'
 import useLogout from '@/hooks/useLogout'
 
@@ -9,11 +9,18 @@ interface HomePageTeamplatesProps {
   children: React.ReactNode
 }
 
+const FirstChildStack = styled(Stack)(() => ({
+  position: 'fixed',
+  zIndex: 999,
+  left: '24px',
+  top: '15px',
+}))
+
 const HomePageTeamplates = ({ label, children }: HomePageTeamplatesProps) => {
   const logout = useLogout()
   return (
-    <Grid container p={3}>
-      <Grid item xs={1.8}>
+    <Stack direction="row" alignItems="flex-start">
+      <FirstChildStack>
         <Navbar
           label={label}
           handleLogout={logout}
@@ -21,13 +28,11 @@ const HomePageTeamplates = ({ label, children }: HomePageTeamplatesProps) => {
           userInfo="James.co"
           avatar={avatar}
         />
-      </Grid>
-      <Grid item xs={10}>
-        <Stack spacing={2} ml={6} sx={{ p: 2 }} width={'98%'} mt={6.5}>
-          {children}
-        </Stack>
-      </Grid>
-    </Grid>
+      </FirstChildStack>
+      <Stack spacing={2} ml={68} sx={{ p: 2 }} flex={1} mt={6.5}>
+        {children}
+      </Stack>
+    </Stack>
   )
 }
 

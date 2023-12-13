@@ -27,7 +27,7 @@ export interface TableProps<T> {
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   border: `0 1 7 0 ${theme.palette.shadow.SHADOW_GEAY}`,
-  height: `min(${theme.spacing(161.5)},80vh)`,
+  height: '100%',
   position: 'relative',
   borderRadius: theme.spacing(1.5),
   overflow: 'hidden',
@@ -79,7 +79,7 @@ function Table<T>({
             ))}
           </TableRow>
         </StyledTableHead>
-        <TableBody>
+        <TableBody sx={{ height: 'fit-content' }}>
           {data.map((item) => (
             <TableRow
               sx={{
@@ -111,7 +111,13 @@ function Table<T>({
         </TableBody>
       </MuiTable>
       {showPagination && (
-        <Stack position="absolute" bottom="0" width="100%">
+        <Stack
+          bottom="0"
+          width="100%"
+          py={2.5}
+          justifyContent="center"
+          position="absolute"
+        >
           <PaginationCard
             width="100%"
             height="100%"

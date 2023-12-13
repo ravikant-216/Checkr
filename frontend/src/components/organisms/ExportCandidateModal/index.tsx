@@ -57,13 +57,17 @@ const ExportCandidateModal = ({
         <Stack direction="row" gap={6.25} height="280px">
           <Stack>
             <Typography>{REPORTS_FROM}</Typography>
-            <StyledDatePicker onChange={handleReportsFromDateChange} />
+            <StyledDatePicker
+              onChange={handleReportsFromDateChange}
+              maxDate={new Date().toISOString()}
+            />
           </Stack>
           <Stack>
             <Typography>{REPORTS_TO}</Typography>
             <StyledDatePicker
               onChange={handleReportsToDateChange}
               minDate={reportsFromDate?.toString()}
+              maxDate={new Date().toISOString()}
             />
           </Stack>
         </Stack>

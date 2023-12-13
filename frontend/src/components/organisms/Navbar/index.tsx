@@ -21,7 +21,7 @@ export interface NavbarProps {
 const Wrapper = styled(Box)({
   width: "min('238px','90vw')",
   minHeight: "min('720px','97vh')",
-  height: '97vh',
+  height: '96vh',
   boxShadow: `0px 4px 28px 0px ${theme.palette.shadow.SHADOW_GEAY}`,
   backgroundColor: `${theme.palette.structural.STRUCTURAL_WHITE}`,
   border: '6px',

@@ -38,7 +38,7 @@ export const AdverseActionPage = () => {
         </TypoStyle>
         <Table
           columns={ColumnDefination}
-          height="fit-content"
+          height="84vh"
           data={data}
           tableHeader={
             <TableHeader
