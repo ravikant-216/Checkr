@@ -47,7 +47,7 @@ const StyledIconStack = styled(Stack)({
 })
 
 const LabelEmailPair = ({ label, email }: { label: string; email: string }) => (
-  <Box padding={theme.spacing(4)}>
+  <Box padding={'2vh'}>
     <Typography variant="caption1" color={'text.highEmphasis'}>
       {label}
     </Typography>
@@ -95,7 +95,7 @@ const PreAdverseCard = ({
         <Divider />
         <LabelEmailPair label={TO_LABEL} email={TO_EMAIL} />
         <Divider />
-        <Box padding={theme.spacing(4)}>
+        <Box padding={'2vh'}>
           <Typography variant="caption1" color={'text.highEmphasis'}>
             {SUBJECT_LABEL}
           </Typography>
@@ -104,7 +104,14 @@ const PreAdverseCard = ({
           </Typography>
         </Box>
         <Divider />
-        <Box padding={theme.spacing(4)}>
+        <Box
+          paddingLeft={'2vh'}
+          paddingTop={'2.5vh'}
+          marginBottom={'5vh'}
+          display="flex"
+          flexDirection={'column'}
+          gap={'1vh'}
+        >
           <Typography variant="body2" color={'text.mediumEmphasis'}>
             {GREETING}
           </Typography>
@@ -114,11 +121,23 @@ const PreAdverseCard = ({
             mt={2.5}
             mb={6}
             maxWidth={'782px'}
+            style={{ lineHeight: '2.5vh' }}
           >
             {INTRO_TEXT}
           </Typography>
-          <Box mt={2} mb={4}>
-            <Typography variant="caption1" color={'text.highEmphasis'}>
+
+          <Box
+            mt={2}
+            mb={4}
+            display={'flex'}
+            flexDirection={'column'}
+            gap={'1vh'}
+          >
+            <Typography
+              variant="caption1"
+              color={'text.highEmphasis'}
+              paddingBottom={'0.5vh'}
+            >
               {CHARGES_LABEL}
             </Typography>
             {charges.map((charge) => (
@@ -136,6 +155,7 @@ const PreAdverseCard = ({
             variant="body2"
             color={'text.mediumEmphasis'}
             maxWidth={'660px'}
+            style={{ lineHeight: '2.5vh' }}
           >
             {DISPUTE_TEXT}
           </Typography>
