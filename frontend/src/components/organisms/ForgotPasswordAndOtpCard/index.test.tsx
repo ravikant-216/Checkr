@@ -2,6 +2,7 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import ForgotPassword from '.'
 import {
   CONTINUE,
+  EMAIL_NOT_EXIST,
   EMAIL_PLACEHOLDER,
   GO_BACK,
   INVALID_EMAIL,
@@ -66,5 +67,24 @@ describe('Forgot Password And Send otp test', () => {
     const otp = screen.getByTestId('otp')
     fireEvent.change(otp, { target: { value: '1234' } })
     fireEvent.click(screen.getByText(CONTINUE))
+  })
+
+  test('Testing Invalid Email Message', () => {
+    const handleSubmit = jest.fn()
+    const handleBack = jest.fn()
+    const handleResetError = jest.fn()
+    renderWithThemeProvider(
+      <ForgotPassword
+        varient="forgotPassword"
+        handleSubmit={handleSubmit}
+        handleBackButton={handleBack}
+        hasEmailEror={false}
+        handleResetError={handleResetError}
+      />
+    )
+    screen.findByText(EMAIL_NOT_EXIST)
+    const emailInput = screen.getByPlaceholderText(EMAIL_PLACEHOLDER)
+    fireEvent.change(emailInput, { target: { value: 'aritra@gmail.com' } })
+    expect(handleResetError).toHaveBeenCalled()
   })
 })

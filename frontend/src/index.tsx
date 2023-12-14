@@ -4,6 +4,7 @@ import './index.css'
 import { ThemeProvider } from '@mui/material'
 import theme from './themes'
 import { Auth0Provider } from '@auth0/auth0-react'
+import AuthContextProvider from './context/AuthContext'
 const root = document.getElementById('root')
 
 if (root !== null) {
@@ -17,7 +18,9 @@ if (root !== null) {
           audience: process.env.REACT_APP_AUTH0_AUDIENCE!,
         }}
       >
-        <App />
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
       </Auth0Provider>
     </ThemeProvider>
   )

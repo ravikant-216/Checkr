@@ -5,17 +5,30 @@ import { useNavigate } from 'react-router-dom'
 import StatusModal from '@/components/molecules/StatusModal'
 import theme from '@/themes'
 import { OTP_MESSAGE } from '@/strings/constant'
+import userService from '@/services/user.service'
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate()
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
+  const [error, setError] = useState<boolean>(false)
 
-  const handleSubmit = () => {
-    setOpen(true)
-    setTimeout(() => {
-      setOpen(false)
-      navigate('/otp-verify')
-    }, 3300)
+  const handleResetError = () => {
+    setError(false)
+  }
+
+  const handleSubmit = async (email: string) => {
+    const user = await userService.findUserByEmail(email)
+    if (user) {
+      setOpen(true)
+      setTimeout(() => {
+        setOpen(false)
+        navigate('/otp-verify', {
+          state: user,
+        })
+      }, 3300)
+    } else {
+      setError(true)
+    }
   }
 
   return (
@@ -23,6 +36,8 @@ const ForgotPasswordPage = () => {
       <ForgotPassword
         varient="forgotPassword"
         height="90vh"
+        hasEmailEror={error}
+        handleResetError={handleResetError}
         handleSubmit={handleSubmit}
         handleBackButton={() => navigate('/login')}
         sx={{

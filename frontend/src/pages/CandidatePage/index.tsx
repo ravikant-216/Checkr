@@ -16,6 +16,7 @@ import { useMemo, useState } from 'react'
 import { ColumnDefination } from './constant'
 import { useNavigate } from 'react-router-dom'
 import { Icon } from '@/components/atoms/Icon'
+import CandidateService from '@/services/CandidateService'
 
 const CandidatePage = () => {
   const { data, fetchParticularPage, page } = usePagination<CandidateDetail>(
@@ -64,14 +65,14 @@ const CandidatePage = () => {
       const option2 =
         statusItems.length !== 0 &&
         statusItems.some(
-          (status) => status.toLowerCase() === item.status.status.toLowerCase()
+          (status) => status.toLowerCase() === item.status.value.toLowerCase()
         )
 
       const option3 =
         adjudicationItems.length !== 0 &&
         adjudicationItems.some(
           (adjudication) =>
-            adjudication.toLowerCase() === item.adjudication.toLowerCase()
+            adjudication.toLowerCase() === item?.adjudication?.toLowerCase()
         )
 
       return option1 || option2 || option3
@@ -83,8 +84,9 @@ const CandidatePage = () => {
     navigate(`/candidate/${row.id}`)
   }
 
-  const handleExport = (_startDate: string, _endDate: string) => {
+  const handleExport = (startDate: string, endDate: string) => {
     //Will be export after backend is done
+    CandidateService.exportAllCandidate(startDate, endDate)
     toggleExportModal()
     toogleStatusModal()
   }

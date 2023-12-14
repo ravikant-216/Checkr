@@ -1,18 +1,40 @@
 import ForgotPassword from '@/components/organisms/ForgotPasswordAndOtpCard'
 import { AuthTemplate } from '@/components/templates/AuthTemplate'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import theme from '@/themes'
+import { useCallback, useEffect } from 'react'
+import { TOKEN } from '@/strings/constant'
+import { useAuthContext } from '@/context/AuthContext'
 
 const OtpPage = () => {
   const navigate = useNavigate()
+  const location = useLocation()
+  const token = location?.state as string
+  const { setIsAuthenticate } = useAuthContext()
+
+  const handleBack = useCallback(() => {
+    navigate('/forgot-password')
+  }, [navigate])
+
+  const handleSubmit = () => {
+    localStorage.setItem(TOKEN, token)
+    setIsAuthenticate(true)
+    navigate('/dashboard')
+  }
+
+  useEffect(() => {
+    if (!token) {
+      handleBack()
+    }
+  }, [token, handleBack])
 
   return (
     <AuthTemplate>
       <ForgotPassword
         varient="verifyOtp"
         height="90vh"
-        handleSubmit={() => navigate('/login')}
-        handleBackButton={() => navigate('/forgot-password')}
+        handleSubmit={handleSubmit}
+        handleBackButton={handleBack}
         sx={{
           width: theme.spacing(120),
           padding: theme.spacing(10, 12.5, 12.5, 12.5),

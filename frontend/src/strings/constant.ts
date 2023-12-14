@@ -239,3 +239,6 @@ export const PRE_ADERVE_ACTION = 'Pre-Adverse Action'
 export const ENGAGE = 'Engage'
 export const DOWNLOAD_LINK_SEND =
   'Download link was sucessfully sent to your email'
+export const TOKEN = 'token'
+export const USER = 'user'
+export const EMAIL_NOT_EXIST = 'Email Not Exist'

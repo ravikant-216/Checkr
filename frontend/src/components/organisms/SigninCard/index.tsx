@@ -31,6 +31,8 @@ export interface SiginProps {
   handleForgotpassword?: () => void
   handleSignin: (email: string, password: string) => void
   handleAuth?: () => void
+  invalidCredentials?: boolean
+  inputHandleChange: () => void
 }
 export const Wrapper = styled(Box)({
   width: '480px',
@@ -78,6 +80,8 @@ export const SigninCard = ({
   handleForgotpassword,
   handleSignin,
   handleSignup,
+  invalidCredentials,
+  inputHandleChange,
 }: SiginProps) => {
   const {
     email,
@@ -93,6 +97,15 @@ export const SigninCard = ({
   const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked)
   }
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    inputHandleChange()
+    if (event.target.name === 'email') {
+      handleEmailChange(event)
+    } else {
+      handlePasswordChange(event)
+    }
+  }
+
   return (
     <>
       {' '}
@@ -110,21 +123,30 @@ export const SigninCard = ({
             error={!isValidEmail}
             helperText={!isValidEmail ? INVALID_EMAIL_FORMAT : ''}
             type={'text'}
-            onChange={handleEmailChange}
+            onChange={handleInputChange}
             label={EMAIL_LABEL}
             placeholder={EMAIL_PLACEHOLDR}
             typovariant="caption1"
             value={email}
+            name="email"
           />
           <InputFieldWithTypography
             type={'password'}
-            onChange={handlePasswordChange}
+            onChange={handleInputChange}
             label={PASSWORD_LABEL}
             placeholder={PASSWORD_PLACEHOLDER}
             typovariant="caption1"
             value={password}
+            name="password"
           />
         </InputWrapper>
+        {invalidCredentials && (
+          <Box padding={3} paddingBottom={0}>
+            <Typography color="red" variant="subtitle1">
+              Invalid credentials
+            </Typography>
+          </Box>
+        )}
         <CheckboxWrapper>
           <CheckboxLabels
             label={REMEMBER_ME}

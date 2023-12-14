@@ -19,15 +19,18 @@ export const ColumnDefination: TableColumn<CandidateDetail>[] = [
     label: 'ADJUDICATION',
     key: 'adjudication',
     customDefination: (row) =>
-      row.adjudication === 'ADVERSE ACTION' || row.adjudication === 'ENGAGE' ? (
+      row?.adjudication === 'ADVERSE_ACTION' ||
+      row?.adjudication === 'ENGAGE' ? (
         <Chip
           label={row.adjudication}
           color={
-            row.adjudication === 'ADVERSE ACTION' ? 'secondary' : 'primary'
+            row.adjudication === 'ADVERSE_ACTION' ? 'secondary' : 'primary'
           }
         />
       ) : (
-        <Typography variant="body1">{row.adjudication}</Typography>
+        <Typography variant="body1" textAlign="center">
+          -
+        </Typography>
       ),
   },
   {
@@ -35,8 +38,8 @@ export const ColumnDefination: TableColumn<CandidateDetail>[] = [
     key: 'status',
     customDefination: (row) => (
       <Chip
-        label={row.status.status}
-        color={row.status.status === 'CLEAR' ? 'primary' : 'secondary'}
+        label={row.status.value}
+        color={row.status.value === 'CLEAR' ? 'primary' : 'secondary'}
       />
     ),
   },

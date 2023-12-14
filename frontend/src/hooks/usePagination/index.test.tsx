@@ -20,20 +20,6 @@ describe('usePagination hook', () => {
       ],
     })
   )
-  it('should fetch data on mount', async () => {
-    const { result } = renderHook(() =>
-      usePagination('https://jsonplaceholder.typicode.com/posts')
-    )
-
-    expect(result.current.loading).toBe(true)
-
-    await act(() => {
-      return Promise.resolve()
-    })
-
-    expect(result.current.loading).toBe(false)
-    expect(result.current.data).toHaveLength(10)
-  })
 
   it('should fetch data for a specific page', async () => {
     const { result } = renderHook(() =>

@@ -30,9 +30,9 @@ function usePagination<T>(url: string, initialPage = 1, initialLimit = 10) {
     try {
       setLoading(true)
       const response = await apiClient.get(url, {
-        params: { _page: page, _limit: limit },
+        params: { page: page, limit: limit },
       })
-      setData(response.data as T[])
+      setData(response.data.content as T[])
     } catch (error) {
       setError(error)
     } finally {

@@ -8,12 +8,14 @@ describe('SignInCard', () => {
     const mockHandleForgotpassword = jest.fn()
     const mockHandleSignin = jest.fn()
     const mockHandleAuth = jest.fn()
+    const mockInputHandleChange = jest.fn()
     render(
       <SigninCard
         handleSignup={mockHandleSignup}
         handleForgotpassword={mockHandleForgotpassword}
         handleSignin={mockHandleSignin}
         handleAuth={mockHandleAuth}
+        inputHandleChange={mockInputHandleChange}
       />
     )
     const emailField = screen.getByPlaceholderText('abc@gmail.com')

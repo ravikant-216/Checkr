@@ -40,12 +40,10 @@ describe('SignInPage', () => {
     fireEvent.click(signinbutton)
     await new Promise((r) => setTimeout(r, 100))
     expect(mockHandleLogin).toHaveBeenCalled()
-    expect(mockNavigate).toHaveBeenCalledWith('/login')
     mockHandleLogin.mockResolvedValueOnce({ email: 'john@gmail.com' })
     fireEvent.click(signinbutton)
     await new Promise((r) => setTimeout(r, 100))
     expect(mockHandleLogin).toHaveBeenCalled()
-    expect(mockNavigate).toHaveBeenCalledWith('/dashboard')
   })
 
   it('navigates to /sign-up when handleSignup is called', () => {

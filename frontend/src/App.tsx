@@ -1,4 +1,3 @@
-import { useAuth0 } from '@auth0/auth0-react'
 import SignInPage from './pages/SignInPage'
 import {
   Navigate,
@@ -6,7 +5,6 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from 'react-router-dom'
-import { useCallback, useEffect } from 'react'
 import SignUpPage from './pages/SignUpPage'
 import CandidateDetailPage from './pages/CandidateDetailPage'
 import CandidatePage from './pages/CandidatePage'
@@ -14,18 +12,19 @@ import ForgotPasswordPage from './pages/ForgotPasswordPage'
 import OtpPage from './pages/OtpPage'
 import { PreAdverseActionPage } from './pages/PreAdverseActionPage'
 import { AdverseActionPage } from './pages/AdverseActionPage'
+import { useAuthContext } from './context/AuthContext'
+
 const UnAuthenticateRoute = () => {
-  const { isAuthenticated } = useAuth0()
-  if (isAuthenticated || localStorage.getItem('user') !== null) {
+  const { isAuthenticate } = useAuthContext()
+  if (isAuthenticate) {
     return <Navigate to="/dashboard" />
   }
   return <Outlet />
 }
 
 const AuthenticateRoute = () => {
-  const { isAuthenticated } = useAuth0()
-  const user = localStorage.getItem('user')
-  if (isAuthenticated || user) {
+  const { isAuthenticate } = useAuthContext()
+  if (isAuthenticate) {
     return <Outlet />
   }
   return <Navigate to="/login" />
@@ -88,16 +87,6 @@ const router = createBrowserRouter([
 ])
 
 export const App = () => {
-  const { getAccessTokenSilently, isAuthenticated } = useAuth0()
-  const setTokenToLocalStorage = useCallback(async () => {
-    const token = await getAccessTokenSilently()
-    localStorage.setItem('token', token)
-  }, [getAccessTokenSilently])
-  useEffect(() => {
-    if (isAuthenticated) {
-      setTokenToLocalStorage()
-    }
-  }, [isAuthenticated, setTokenToLocalStorage])
   return (
     <div>
       <RouterProvider router={router} />

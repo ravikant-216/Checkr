@@ -28,6 +28,8 @@ interface ForgotPasswordProps {
   sx?: SxProps
   height?: string
   width?: string
+  hasEmailEror?: boolean
+  handleResetError?: () => void
 }
 
 const StyledButton = styled(Button)({
@@ -48,6 +50,8 @@ const ForgotPassword = ({
   height,
   width,
   handleBackButton,
+  hasEmailEror,
+  handleResetError,
 }: ForgotPasswordProps) => {
   const theme = useTheme()
   const [value, setValue] = useState('')
@@ -58,6 +62,7 @@ const ForgotPassword = ({
   }
 
   const handleForgotPassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    handleResetError?.()
     setValue(e.target.value)
     if (!EMAIL_REGEX.test(e.target.value)) {
       setEmailError(true)
@@ -67,8 +72,14 @@ const ForgotPassword = ({
   }
 
   const handleOnSubmit = () => {
+    setValue('')
     handleSubmit(value)
   }
+  const helperText = hasEmailEror
+    ? 'Email Not Exist'
+    : emailError
+    ? INVALID_EMAIL
+    : ''
 
   return (
     <StyledBox width={width} height={height} px={12} py={6.75} sx={sx}>
@@ -98,9 +109,10 @@ const ForgotPassword = ({
               type="email"
               label="Email"
               onChange={handleForgotPassword}
-              helperText={emailError ? INVALID_EMAIL : ''}
-              error={emailError}
+              helperText={helperText}
+              error={emailError || hasEmailEror}
               placeholder={EMAIL_PLACEHOLDER}
+              value={value}
             />
           ) : (
             <MuiOtpInput value={value} onChange={handleOtpChange} />

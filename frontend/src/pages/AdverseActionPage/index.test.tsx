@@ -6,12 +6,20 @@ import { ThemeProvider } from '@mui/material'
 import theme from '@/themes'
 import { act } from 'react-dom/test-utils'
 import * as Router from 'react-router-dom'
+import * as AuthContext from '@/context/AuthContext'
 
 jest.mock('@/api/api')
 jest.mock('react-router-dom')
+jest.mock('@/context/AuthContext')
 describe('AdverseActionPage', () => {
   beforeEach(() => {
     jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
+
+    jest.spyOn(AuthContext, 'useAuthContext').mockReturnValue({
+      isAuthenticate: true,
+      setIsAuthenticate: jest.fn(),
+    })
+
     jest.spyOn(Api, 'getAllAdverseAction').mockReturnValue(
       Promise.resolve([
         {

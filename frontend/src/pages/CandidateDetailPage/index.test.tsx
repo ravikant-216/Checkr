@@ -4,6 +4,7 @@ import * as Router from 'react-router-dom'
 import { CANDIDATES } from '@/__mocks__'
 import CandidateService from '@/services/CandidateService'
 import { ThemeProvider } from '@mui/material'
+import * as AuthContext from '@/context/AuthContext'
 import theme from '@/themes'
 import {
   CANDIDATE_INFO,
@@ -14,9 +15,13 @@ import {
 
 jest.mock('react-router-dom')
 jest.mock('@/services/CandidateService')
-
+jest.mock('@/context/AuthContext')
 describe('Testing candidate detail page', () => {
   beforeEach(() => {
+    jest.spyOn(AuthContext, 'useAuthContext').mockReturnValue({
+      isAuthenticate: true,
+      setIsAuthenticate: jest.fn(),
+    })
     const praram = jest.spyOn(Router, 'useParams')
     jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
     ;(praram as jest.Mock).mockReturnValue({ id: '1' })

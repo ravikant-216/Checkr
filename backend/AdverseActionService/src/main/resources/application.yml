@@ -1,5 +1,7 @@
 server:
   port: ${ADVERSE_ACTION_SERVICE_PORT}
+  servlet:
+    context-path: /api
 spring:
   application:
     name: adverse-action-service

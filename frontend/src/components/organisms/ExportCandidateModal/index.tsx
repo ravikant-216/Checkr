@@ -46,7 +46,7 @@ const ExportCandidateModal = ({
 
   const handleSubmit = () => {
     if (reportsFromDate && reportsToDate) {
-      handleExport(reportsFromDate.toString(), reportsToDate.toString())
+      handleExport(reportsFromDate.toISOString(), reportsToDate.toISOString())
     }
   }
 

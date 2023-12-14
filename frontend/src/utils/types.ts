@@ -36,17 +36,17 @@ export interface CandidateInformation {
 
 export type NavbarLabel = 'Candidates' | 'Adverse Actions'
 
-export type ADVERSE_ACTION = 'ADVERSE ACTION' | '-' | 'ENGAGE'
+export type ADVERSE_ACTION = 'ADVERSE_ACTION' | '-' | 'ENGAGE'
 
 export type Status = {
   id: string
-  status: StatusType
+  value: StatusType
 }
 
 export type CandidateDetail = {
   id: string
   name: string
-  adjudication: ADVERSE_ACTION
+  adjudication?: ADVERSE_ACTION
   status: Status
   location: string
   date: string

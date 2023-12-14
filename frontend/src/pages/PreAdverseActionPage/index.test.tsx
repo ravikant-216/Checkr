@@ -1,12 +1,17 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { PreAdverseActionPage } from '.'
+import * as AuthContext from '@/context/AuthContext'
 import * as Router from 'react-router-dom'
 
 jest.mock('react-router-dom')
-
+jest.mock('@/context/AuthContext')
 describe('Previewnotice page rendering', () => {
   beforeEach(() => {
     jest.spyOn(Router, 'useNavigate').mockReturnValue(jest.fn())
+    jest.spyOn(AuthContext, 'useAuthContext').mockReturnValue({
+      isAuthenticate: true,
+      setIsAuthenticate: jest.fn(),
+    })
   })
 
   it('if location state null then redirect to home page', () => {

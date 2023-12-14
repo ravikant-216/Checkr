@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CandidateDetail, User, AdverseactionDetail } from '@/utils/types'
 import api_routes from './api_routes'
 import apiClient from './axios'
+import { AderseActionData } from '@/__mocks__'
 export const checkUser = async (email: string, password: string) => {
   try {
-    const res = await apiClient.get(
-      api_routes.GET_USER_BY_EMAIL_AND_PASSWORD(email, password)
-    )
-    if (res.data.length > 0) {
-      localStorage.setItem('token', res.data[0].email)
-      return res.data[0]
-    }
+    const res = await apiClient.post(api_routes.LOGIN, {
+      password,
+      email,
+    })
+    localStorage.setItem('token', res.data.token)
+    return res.data.token
   } catch (error) {
     console.error('Error while checking user:', error)
   }
@@ -18,13 +19,13 @@ export const checkUser = async (email: string, password: string) => {
 
 export const addAuthUser = async (email: string, password: string) => {
   try {
-    const userResponse = await checkUserByEmail(email)
-
-    if (userResponse.data.length === 0) {
-      const newUserResponse = await addUser('admin', email, password)
-      localStorage.setItem('user', JSON.stringify(newUserResponse))
-      return newUserResponse
-    }
+    const response = await apiClient.post(api_routes.SIGN_UP, {
+      email,
+      password,
+      name: 'John',
+    })
+    localStorage.setItem('token', response.data.token)
+    return response.data.token
   } catch (error) {
     console.log(error)
   }
@@ -32,7 +33,9 @@ export const addAuthUser = async (email: string, password: string) => {
 }
 
 export const checkUserByEmail = (email: string) => {
-  return apiClient.get(api_routes.GET_USER_BY_EMAIL(email))
+  return apiClient.post(api_routes.FORGOT_PASSWORD, {
+    email,
+  })
 }
 export const addUser = async (
   name: string,
@@ -49,8 +52,8 @@ export const addUser = async (
 }
 
 export const getAllAdverseAction = async (): Promise<AdverseactionDetail[]> => {
-  const res = await apiClient.get(api_routes.ADVERSE_ACTION)
-  return res.data
+  const res = Promise.resolve(AderseActionData as any)
+  return res
 }
 
 export const fetchCandidateDetailById = (id: string) => {
@@ -62,4 +65,10 @@ export const updateCandidateDetailById = (
   id: string
 ) => {
   return apiClient.patch(api_routes.GET_CANDIDAT_BY_ID(id), body)
+}
+export const exportCandidate = (startDate: string, endDate: string) => {
+  return apiClient.post(api_routes.CANDIDATE_EXPORT, {
+    startDate,
+    endDate,
+  })
 }

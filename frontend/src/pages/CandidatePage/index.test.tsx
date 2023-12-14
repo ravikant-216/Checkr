@@ -3,6 +3,7 @@ import CandidatePage from '.'
 import usePagination from '@/hooks/usePagination'
 import { CANDIDATES } from '@/__mocks__'
 import { ThemeProvider } from '@mui/material'
+import * as AuthContext from '@/context/AuthContext'
 import theme from '@/themes'
 import {
   EXPORT_CSV,
@@ -14,6 +15,7 @@ import * as Router from 'react-router-dom'
 
 jest.mock('@/hooks/usePagination')
 jest.mock('react-router-dom')
+jest.mock('@/context/AuthContext')
 
 const Render = () =>
   render(
@@ -22,6 +24,12 @@ const Render = () =>
     </ThemeProvider>
   )
 describe('Candidate Page Testing', () => {
+  beforeEach(() => {
+    jest.spyOn(AuthContext, 'useAuthContext').mockReturnValue({
+      isAuthenticate: true,
+      setIsAuthenticate: jest.fn(),
+    })
+  })
   test('Check Pagination Working or not', () => {
     const fetchParticularPage = jest.fn()
     ;(usePagination as jest.Mock).mockReturnValue({

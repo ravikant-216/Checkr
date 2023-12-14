@@ -8,12 +8,13 @@ import SecurityIcon from '@Assets/icons/Security.svg'
 import CanderIcon from '@Assets/icons/Calendar.svg'
 
 import { CandidateDetail } from './types'
+import dayjs from 'dayjs'
 
 export const formatDate = (date: string) => {
-  const dateObj = new Date(date)
-  const month = dateObj.getMonth() + 1
-  const day = String(dateObj.getDate()).padStart(2, '0')
-  const year = dateObj.getFullYear()
+  const dateObj = dayjs(date)
+  const month = dateObj.month() + 1
+  const day = String(dateObj.date()).padStart(2, '0')
+  const year = dateObj.year()
   const output = `${month}/${day}/${year}`
   return output
 }
