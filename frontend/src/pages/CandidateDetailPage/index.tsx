@@ -82,6 +82,7 @@ const CandidateDetailPage = () => {
           onSecondButtonclick={engageOnClick}
           firstButtonName={PRE_ADERVE_ACTION}
           secondButtonName={ENGAGE}
+          disabledSecondButton={candidate.adjudication === 'ENGAGE'}
         />
         <Accordions
           heading={CANDIDATE_INFO}

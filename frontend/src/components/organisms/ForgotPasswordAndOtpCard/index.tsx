@@ -110,7 +110,7 @@ const ForgotPassword = ({
               label="Email"
               onChange={handleForgotPassword}
               helperText={helperText}
-              error={emailError || hasEmailEror}
+              error={emailError ?? hasEmailEror}
               placeholder={EMAIL_PLACEHOLDER}
               value={value}
             />

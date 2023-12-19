@@ -31,6 +31,7 @@ export interface CandidateInforHeaderProps {
   onBackIconClick?: () => void
   onSecondButtonclick?: () => void
   backIcon?: string
+  disabledSecondButton?: boolean
 }
 export const CandidateInforHeader = ({
   heading,
@@ -42,6 +43,7 @@ export const CandidateInforHeader = ({
   onSecondButtonclick,
   onBackIconClick,
   backIcon,
+  disabledSecondButton,
 }: CandidateInforHeaderProps) => {
   return (
     <StyledBox>
@@ -87,6 +89,7 @@ export const CandidateInforHeader = ({
           buttonTextColor={theme.palette.structural.STRUCTURAL_WHITE}
           borderRadius={6}
           backgroundColor={theme.palette.primary[500]}
+          disabled={disabledSecondButton}
         />
       </InnerBox>
     </StyledBox>

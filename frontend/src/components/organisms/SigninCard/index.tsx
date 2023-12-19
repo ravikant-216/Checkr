@@ -12,7 +12,6 @@ import {
   EMAIL_LABEL,
   EMAIL_PLACEHOLDR,
   FORGT_PASSWORD,
-  INVALID_EMAIL_FORMAT,
   OR,
   PASSWORD_LABEL,
   PASSWORD_PLACEHOLDER,
@@ -83,16 +82,9 @@ export const SigninCard = ({
   invalidCredentials,
   inputHandleChange,
 }: SiginProps) => {
-  const {
-    email,
-    isValidEmail,
-    password,
-    isValidPassword,
-    handleEmailChange,
-    handlePasswordChange,
-  } = useAuthState()
-  const isButtonDisabled =
-    isValidEmail && isValidPassword && email.length > 0 && password.length > 0
+  const { email, password, handleEmailChange, handlePasswordChange } =
+    useAuthState()
+  const isButtonDisabled = email.length > 0 && password.length > 0
   const [checked, setChecked] = useState<boolean>(false)
   const handleChecked = (event: ChangeEvent<HTMLInputElement>) => {
     setChecked(event.target.checked)
@@ -120,8 +112,6 @@ export const SigninCard = ({
         </HeadingWrapper>
         <InputWrapper>
           <InputFieldWithTypography
-            error={!isValidEmail}
-            helperText={!isValidEmail ? INVALID_EMAIL_FORMAT : ''}
             type={'text'}
             onChange={handleInputChange}
             label={EMAIL_LABEL}
