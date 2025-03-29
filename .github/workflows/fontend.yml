@@ -1,44 +1,45 @@
-name: FrontEnd Build
+name: Codecov Frontend Scan
 on:
   push:
     branches:
-      - main
+      - main # Change it to your main branch.
+    paths:
+      - "frontend/**" # Specify the frontend folder name.
+      - ".github/workflows/frontendBuild.yml" # Replace it correctly with the path to your workflow file.
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
-  sonarcloud:
+  codecov:
     if: ( startsWith(github.head_ref, 'FE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
-    name: SonarCloud
+    name: FE Codecov Analysis
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8 # Set the timeout as needed.
     defaults:
       run:
-        working-directory: ./frontend
+        working-directory: frontend # Change the working-directory to your frontend folder name.
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0 # Ensure full history for accurate analysis.
+
       - name: Cache node modules
         id: cache-nodemodules
         uses: actions/cache@v3
+        with:
+          path: ${{ github.workspace }}/frontend/node_modules # Path to the node_modules folder.
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package.json') }}
         env:
           cache-name: cache-node-modules
-        with:
-          path: ${{ github.workspace }}/frontend/node_modules # Change the path to the node_modules folder.
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
 
-      - name: Install dependencies
-        run: npm install
-      - name: Lint
-        run: npm run lint
-      - name: Build
-        run: npm run build
-      - name: Test and coverage
-        run: npm run test:jest:coverage
-      - name: SonarCloud Scan
+      - name: Install the dependencies
+        if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+        run: npm i
+
+      - name: Run tests and generate coverage
+        run: npm run test:jest:coverage # Ensure your test script generates a coverage report.
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v5
         with:
-          projectBaseDir: ./frontend
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          token: ${{ secrets.CODECOV_TOKEN }}
