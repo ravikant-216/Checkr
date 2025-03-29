@@ -1,7 +1,7 @@
 {
-  "name": "bootcamp-140-checkr",
+  "name": "checkr",
   "version": "1.0.0",
-  "description": "bootcamp-140-checkr",
+  "description": "140-checkr",
   "main": "index.js",
   "scripts": {
     "start": "webpack server --config webpack.config.js --open",
@@ -41,7 +41,9 @@
     "jest-raw-loader": "^1.0.1",
     "jest-transform-css": "^6.0.1",
     "json-server": "^0.17.4",
+    "json-server-auth": "^2.1.0",
     "json-to-csv-export": "^2.1.1",
+    "jsonwebtoken": "^9.0.2",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.8.1",
     "mui-one-time-password-input": "^2.0.1",

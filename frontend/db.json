@@ -1,6 +1,5 @@
 {
   "application_status": [
-
     {
       "id": "5d1f55ca-91b7-4dfa-8228-7c15094a8a91",
       "name": "Arianna",
@@ -2312,6 +2311,12 @@
       "email": "admin1@example.com",
       "password": "Admin2@123",
       "id": "6XmbJ8c"
+    },
+    {
+      "email": "ravi@12.com",
+      "password": "$2a$10$KzGmH4WAf8/saBJSg4ilW.i/f.LGkPAjeiNrSBMFUJVz60aYPE7MW",
+      "name": "Ravi",
+      "id": "DL7nLqR"
     }
   ],
   "verification_record": [
