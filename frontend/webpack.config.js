@@ -51,9 +51,11 @@ module.exports = {
     },
   },
   devServer: {
-    host: 'localhost',
-    port: 3000,
+    port: process.env.PORT || 3000,
+    host: '0.0.0.0',
     historyApiFallback: true,
-    open: true,
+    hot: true,
+    historyApiFallback: true,
+    open: false,
   },
 }
