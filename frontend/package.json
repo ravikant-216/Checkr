@@ -12,7 +12,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "test:jest": "jest --config=jest.config.ts",
-    "server": "json-server --watch db.json --port 3001",
+    "server": "node server.js",
     "test:jest:watch": "jest --config=jest.config.ts  --watchAll",
     "test:jest:coverage": "jest --config=jest.config.ts --coverage",
     "chromatic": "npx chromatic --project-token=chpt_627a363d3dac01f"
