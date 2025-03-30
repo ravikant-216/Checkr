@@ -58,21 +58,25 @@ const CandidatePage = () => {
       adjudicationItems.length === 0
     )
       return undefined
+
     return data.filter((item) => {
       const option1 =
-        search !== '' && item.name.toLowerCase().includes(search.toLowerCase())
+        search !== '' &&
+        item?.name?.toLowerCase().includes(search?.toLowerCase())
 
       const option2 =
         statusItems.length !== 0 &&
-        statusItems.some(
-          (status) => status.toLowerCase() === item.status.value.toLowerCase()
-        )
+        item?.status?.status && // Ensure status exists
+        statusItems.some((status) => {
+          return status.toLowerCase() === item.status.status.toLowerCase()
+        })
 
       const option3 =
         adjudicationItems.length !== 0 &&
         adjudicationItems.some(
           (adjudication) =>
-            adjudication.toLowerCase() === item?.adjudication?.toLowerCase()
+            adjudication.trim().toLowerCase() ===
+            item?.adjudication?.trim().toLowerCase()
         )
 
       return option1 || option2 || option3

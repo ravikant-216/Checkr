@@ -1,4 +1,4 @@
-const CANDIDATE = '/candidate'
+const CANDIDATE = '/candidates'
 
 const GET_CANDIDAT_BY_ID = (id: string) => `${CANDIDATE}/${id}`
 const GET_USER_BY_EMAIL_AND_PASSWORD = (email: string, password: string) =>

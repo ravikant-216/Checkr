@@ -9,7 +9,7 @@ import Paper from '@mui/material/Paper'
 import { Stack, Typography, styled } from '@mui/material'
 import { PaginationCard } from '@/components/molecules/PaginationCard'
 import { TableColumn } from '@/utils/types'
-import { ReactNode } from 'react'
+import { ReactNode, useMemo } from 'react'
 
 export interface TableProps<T> {
   columns: TableColumn<T>[]
@@ -26,7 +26,7 @@ export interface TableProps<T> {
 }
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
-  border: `0 1 7 0 ${theme.palette.shadow.SHADOW_GEAY}`,
+  border: `1px solid ${theme.palette.shadow.SHADOW_GRAY || '#ddd'}`,
   height: '100%',
   position: 'relative',
   borderRadius: theme.spacing(1.5),
@@ -34,17 +34,17 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 }))
 
 const StyledTableHead = styled(TableHead)(({ theme }) => ({
-  background: theme.palette.primary[100],
-  borderTop: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
-  borderBottom: `1px solid ${theme.palette.structural.STRUCTURAL_STROKE}`,
+  background: theme.palette.primary[100] || '#f0f0f0',
+  borderTop: `1px solid ${
+    theme.palette.structural?.STRUCTURAL_STROKE || '#ccc'
+  }`,
+  borderBottom: `1px solid ${
+    theme.palette.structural?.STRUCTURAL_STROKE || '#ccc'
+  }`,
 }))
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  color: theme.palette.text.mediumEmphasis,
-  paddingLeft: theme.spacing(4),
-  paddingRight: theme.spacing(4),
-  paddingTop: theme.spacing(3),
-  paddingBottom: theme.spacing(3),
+  color: theme.palette.text?.mediumEmphasis || '#000',
 }))
 
 function Table<T>({
@@ -58,11 +58,54 @@ function Table<T>({
   pageCount = 3,
   onPageChange,
   showPagination = true,
-  height,
+  height = 'auto',
 }: Readonly<TableProps<T>>) {
-  const handlePageChange = (_e: React.ChangeEvent<unknown>, page: number) => {
-    onPageChange?.(page)
+  const handlePageChange = (
+    _e: React.ChangeEvent<unknown>,
+    nextPage: number
+  ) => {
+    onPageChange?.(nextPage)
   }
+
+  const renderRows = useMemo(() => {
+    if (!data || data.length === 0) {
+      return (
+        <TableRow>
+          <TableCell colSpan={columns.length} align="center">
+            <Typography variant="body1" color="text.secondary">
+              No data available
+            </Typography>
+          </TableCell>
+        </TableRow>
+      )
+    }
+
+    return data.map((item) => (
+      <TableRow
+        sx={{
+          cursor: onRowClick ? 'pointer' : 'default',
+          '& th:first-child': { pl: 4 },
+        }}
+        key={item[customIdColumn] as string}
+        onClick={() => onRowClick?.(item)}
+      >
+        {columns.map((column) => (
+          <TableCell
+            component="th"
+            align={column.align ?? 'left'}
+            scope="row"
+            sx={{ p: 2 }}
+            key={`${column.key as string}-${item[customIdColumn] as string}`}
+          >
+            {column.customDefination
+              ? column.customDefination(item)
+              : (item[column.key] as string)}
+          </TableCell>
+        ))}
+      </TableRow>
+    ))
+  }, [data, columns, onRowClick, customIdColumn])
+
   return (
     <TableContainer component={StyledPaper} sx={{ height }}>
       <Stack>{tableHeader}</Stack>
@@ -73,51 +116,18 @@ function Table<T>({
               <StyledTableCell
                 align={column.align ?? 'left'}
                 key={column.key as string}
+                aria-label={`Column: ${column.label}`}
               >
-                <Typography>{column.label}</Typography>
+                <Typography variant="subtitle2">{column.label}</Typography>
               </StyledTableCell>
             ))}
           </TableRow>
         </StyledTableHead>
-        <TableBody sx={{ height: 'fit-content' }}>
-          {data.map((item) => (
-            <TableRow
-              sx={{
-                cursor: 'pointer',
-                '& th:first-child': {
-                  pl: 4,
-                },
-              }}
-              key={item[customIdColumn] as string}
-              onClick={() => onRowClick?.(item)}
-            >
-              {columns.map((column) => (
-                <TableCell
-                  component="th"
-                  align={column.align ?? 'left'}
-                  scope="row"
-                  sx={{ p: 2 }}
-                  key={`${column.key as string} + ${
-                    item[customIdColumn] as string
-                  }`}
-                >
-                  {column.customDefination
-                    ? column.customDefination(item)
-                    : (item[column.key] as string)}
-                </TableCell>
-              ))}
-            </TableRow>
-          ))}
-        </TableBody>
+        <TableBody sx={{ height: 'fit-content' }}>{renderRows}</TableBody>
       </MuiTable>
+      {/* Ensure Pagination is directly below the table */}
       {showPagination && (
-        <Stack
-          bottom="0"
-          width="100%"
-          py={2.5}
-          justifyContent="center"
-          position="absolute"
-        >
+        <Stack width="100%" py={2} justifyContent="center" alignItems="center">
           <PaginationCard
             width="100%"
             height="100%"
@@ -126,7 +136,7 @@ function Table<T>({
               count: pageCount,
               page: page,
             }}
-            count={pageCount + ''}
+            count={pageCount.toString()}
             onPageChange={handlePageChange}
           />
         </Stack>

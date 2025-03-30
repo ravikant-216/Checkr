@@ -40,7 +40,7 @@ export type ADVERSE_ACTION = 'ADVERSE_ACTION' | '-' | 'ENGAGE'
 
 export type Status = {
   id: string
-  value: StatusType
+  status: StatusType
 }
 
 export type CandidateDetail = {
