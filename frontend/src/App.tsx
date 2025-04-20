@@ -87,6 +87,7 @@ const router = createBrowserRouter([
 ])
 
 export const App = () => {
+  console.log('Backend URL: ', process.env.REACT_APP_SERVER_URL)
   return (
     <div>
       <RouterProvider router={router} />
