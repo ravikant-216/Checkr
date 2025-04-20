@@ -4,7 +4,8 @@
   "description": "140-checkr",
   "main": "index.js",
   "scripts": {
-    "start": "webpack server --config webpack.config.js --open",
+    "start": "serve -s dist",
+    "dev": "webpack server --config webpack.config.js --open",
     "build": "webpack --config webpack.config.js",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\" --ignore-pattern \"src/themes/*\"",
     "lint:fix": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\" --ignore-pattern \"src/themes/*\"",
